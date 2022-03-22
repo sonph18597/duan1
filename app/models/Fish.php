@@ -2,7 +2,8 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Fish extends Model{
-    protected $table = 'answers';
+    protected $table = 'fish';
+    protected $fillable = [''];
     public $timestamps = false;
 }
 ?>
