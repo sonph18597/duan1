@@ -23,21 +23,21 @@ class UsersController
     public function saveAdd()
     {
         Users::create([
-            'user_name' => $_POST['user_name'],
-            'phone' => $_POST['phone'],
-            'name' => $_POST['name'],
-            'pass' => $_POST['pass'],
-            'role' => $_POST['role'],
+            'ten_tai_khoan' => $_POST['ten_tai_khoan'],
+            'so_dien_thoai' => $_POST['so_dien_thoai'],
+            'ho_ten' => $_POST['ho_ten'],
+            'mat_khau' => $_POST['mat_khau'],
+            'vai_tro' => $_POST['vai_tro'],
             'email' => $_POST['email'],
-            'image' => $_POST['image']
+            'anh_dai_dien' => $_POST['anh_dai_dien']
         ]);
 
         header('location: ' . BASE_URL . 'nguoi-dung');
     }
 
-    public function editForm($id)
+    public function editForm($ma_tai_khoan)
     {
-        $user = Users::find($id);
+        $user = Users::find($ma_tai_khoan);
         if (!$user) {
             header('location: ' . BASE_URL . 'nguoi-dung');
         } else {
@@ -47,14 +47,14 @@ class UsersController
         }
     }
 
-    public function saveEdit($id)
+    public function saveEdit($ma_tai_khoan)
     {
 
-        $user = Users::find($id);
-        $user->user_name = $_POST['user_name'];
-        $user->phone = $_POST['phone'];
-        $user->name = $_POST['name'];
-        $user->pass = $_POST['pass'];
+        $user = Users::find($ma_tai_khoan);
+        $user->ten_tai_khoan = $_POST['ten_tai_khoan'];
+        $user->so_dien_thoai = $_POST['so_dien_thoai'];
+        $user->ho_ten = $_POST['ho_ten'];
+        $user->mat_khau = $_POST['mat_khau'];
         $user->role = $_POST['role'];
         $user->email = $_POST['email'];
         $user->image = $_POST['image'];

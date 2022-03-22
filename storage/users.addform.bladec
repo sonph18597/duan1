@@ -1,9 +1,12 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('main-content'); ?>
 <form method="POST" action="">
+ <?php if(isset($_GET['msg'])): ?>
+ <p class="text-danger"><?= $_GET['msg'] ?></p>
+ <?php endif; ?>
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Tên tài khoản</label>
- <input name="user_name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ <input name="ten_tai_khoan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
 
  <div class="mb-3">
@@ -13,30 +16,31 @@
 
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Password</label>
- <input name="pass" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ <input name="mat_khau" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
 
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Tên người dùng</label>
- <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ <input name="ho_ten" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
 
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Số điện thoại</label>
- <input name="phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ <input name="so_dien_thoai" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
 
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Hình</label>
- <input name="image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ <input name="anh_dai_dien" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
 
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Vai trò</label>
- <select class="form-select" aria-label="Default select example" name='role'>     
- <option value="1">One</option>
- <option value="2">Two</option>
- <option value="3">Three</option>
+ <select class="form-select" aria-label="Default select example" name='vai_tro'>     
+ <option value="Admin">Admin</option>
+ <option value="Admin chi nhánh">Admin chi nhánh</option>
+ <option value="Cộng tác viên">Cộng tác viên</option>
+ <option value="Khách hàng">Khách hàng</option>
  </select>
  </div>
 

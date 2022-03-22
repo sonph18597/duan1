@@ -20,17 +20,17 @@
     <tbody>
         @foreach ($user as $item)
             <tr>
-                <th scope="row">{{$item->id}}</th>
-                <td>{{$item->user_name}}</td>
+                <th scope="row">{{$item->ma_tai_khoan}}</th>
+                <td>{{$item->ten_tai_khoan}}</td>
                 <td>{{$item->email}}</td>
-                <td>{{$item->pass}}</td>
-                <td>{{$item->name}}</td>
-                <td>{{$item->phone}}</td>
-                <td>{{$item->image}}</td>
-                <td>{{$item->role}}</td>
+                <td>{{$item->mat_khau}}</td>
+                <td>{{$item->ho_ten}}</td>
+                <td>{{$item->so_dien_thoai}}</td>
+                <td>{{$item->anh_dai_dien}}</td>
+                <td>{{$item->vai_tro}}</td>
                 <td>
-                    <a href="{{BASE_URL . 'nguoi-dung/cap-nhat_id'.$item->id}}">Sửa</a>
-                    <a href="{{BASE_URL . 'nguoi-dung/xoa_id' . $item->id}}">Xóa</a>
+                    <a href="{{BASE_URL . 'nguoi-dung/cap-nhat_id'.$item->ma_tai_khoan}}"><button type="button" class="btn btn-primary">Sửa</button></a>
+                    <a href="{{BASE_URL . 'nguoi-dung/xoa_id' . $item->ma_tai_khoan}}"><button  type="button" class="btn btn-danger">Xóa</button></a>
                 </td>
             </tr>
         @endforeach

@@ -13,7 +13,7 @@
           <img src="{{PUBLIC_URL}}dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Sesion</a>
         </div>
       </div>
 
@@ -53,13 +53,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'loai-ca'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'loai-ca/tao-moi'}}" class="nav-link">
                    
                   <p>Tạo mới</p>
                 </a>
@@ -101,13 +101,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'nguoi-dung'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'nguoi-dung/tao-moi'}}" class="nav-link">
                    
                   <p>Tạo mới</p>
                 </a>

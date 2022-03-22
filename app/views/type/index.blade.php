@@ -13,11 +13,11 @@
     <tbody>
         @foreach ($type as $item)
             <tr>
-                <th scope="row">{{$item->id}}</th>
-                <td>{{$item->name}}</td>
+                <th scope="row">{{$item->ma_loai}}</th>
+                <td>{{$item->ten_loai}}</td>
                 <td>
-                    <a href="{{BASE_URL . 'loai-ca/cap-nhat_Sid'.$item->id}}">Sửa</a>
-                    <a href="{{BASE_URL . 'loai-ca/xoa_Sid' . $item->id}}">Xóa</a>
+                    <a href="{{BASE_URL . 'loai-ca/cap-nhat_id'.$item->ma_loai}}"><button type="button" class="btn btn-primary">Sửa</button></a>
+                    <a href="{{BASE_URL . 'loai-ca/xoa_id' . $item->ma_loai}}"><button  type="button" class="btn btn-danger">Xóa</button></a>
                 </td>
             </tr>
         @endforeach

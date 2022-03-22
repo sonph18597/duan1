@@ -25,16 +25,16 @@ function definedRoute($url){
     $router->get('loai-ca',[TypeController::class,'index']);
     $router->get('loai-ca/tao-moi',[TypeController::class,'addForm']);
     $router->post('loai-ca/tao-moi',[TypeController::class,'saveAdd']);
-    $router->get('loai-ca/cap-nhat_Sid{id}',[TypeController::class,'editForm']);
-    $router->post('loai-ca/cap-nhat_Sid{id}',[TypeController::class,'saveEdit']);
-    $router->get('loai-ca/xoa_Sid{id}',[TypeController::class,'remove']);
+    $router->get('loai-ca/cap-nhat_id{ma_loai}',[TypeController::class,'editForm']);
+    $router->post('loai-ca/cap-nhat_id{ma_loai}',[TypeController::class,'saveEdit']);
+    $router->get('loai-ca/xoa_id{ma_loai}',[TypeController::class,'remove']);
 
     $router->get('nguoi-dung',[UsersController::class,'index']);
     $router->get('nguoi-dung/tao-moi',[UsersController::class,'addForm']);
     $router->post('nguoi-dung/tao-moi',[UsersController::class,'saveAdd']);
-    $router->get('nguoi-dung/cap-nhat_id{id}',[UsersController::class,'editForm']);
-    $router->post('nguoi-dung/cap-nhat_id{id}',[UsersController::class,'saveEdit']);
-    $router->get('nguoi-dung/xoa_id{id}',[UsersController::class,'remove']);
+    $router->get('nguoi-dung/cap-nhat_id{ma_tai_khoan}',[UsersController::class,'editForm']);
+    $router->post('nguoi-dung/cap-nhat_id{ma_tai_khoan}',[UsersController::class,'saveEdit']);
+    $router->get('nguoi-dung/xoa_id{ma_tai_khoan}',[UsersController::class,'remove']);
     
     $router->get('chi-nhanh',[BranchController::class,'index']);
     $router->get('chi-nhanh/tao-moi',[BranchController::class,'addForm']);
