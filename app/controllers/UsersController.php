@@ -20,6 +20,7 @@ class UsersController
         return view('users.addform');
     }
 
+    // Function add
     public function saveAdd()
     {   $user = Users::where('ten_tai_khoan',$_POST['ten_tai_khoan'])->first();
       
