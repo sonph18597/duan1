@@ -21,18 +21,23 @@ class UsersController
     }
 
     public function saveAdd()
-    {
-        Users::create([
-            'ten_tai_khoan' => $_POST['ten_tai_khoan'],
-            'so_dien_thoai' => $_POST['so_dien_thoai'],
-            'ho_ten' => $_POST['ho_ten'],
-            'mat_khau' => $_POST['mat_khau'],
-            'vai_tro' => $_POST['vai_tro'],
-            'email' => $_POST['email'],
-            'anh_dai_dien' => $_POST['anh_dai_dien']
-        ]);
-
-        header('location: ' . BASE_URL . 'nguoi-dung');
+    {   $user = Users::where('ten_tai_khoan',$_POST['ten_tai_khoan'])->first();
+      
+        if($user){
+            header('location: ' . BASE_URL . 'nguoi-dung/tao-moi?msg=Tên tài khoản dùng đã tồn tại');
+            die;
+        }else{
+            Users::create([
+                'ten_tai_khoan' => $_POST['ten_tai_khoan'],
+                'so_dien_thoai' => $_POST['so_dien_thoai'],
+                'ho_ten' => $_POST['ho_ten'],
+                'mat_khau' => $_POST['mat_khau'],
+                'vai_tro' => $_POST['vai_tro'],
+                'email' => $_POST['email'],
+                'anh_dai_dien' => $_POST['anh_dai_dien']
+            ]);
+            header('location: ' . BASE_URL . 'nguoi-dung');
+        }
     }
 
     public function editForm($ma_tai_khoan)
@@ -55,15 +60,15 @@ class UsersController
         $user->so_dien_thoai = $_POST['so_dien_thoai'];
         $user->ho_ten = $_POST['ho_ten'];
         $user->mat_khau = $_POST['mat_khau'];
-        $user->role = $_POST['role'];
+        $user->vai_tro = $_POST['vai_tro'];
         $user->email = $_POST['email'];
-        $user->image = $_POST['image'];
+        $user->anh_dai_dien = $_POST['anh_dai_dien'];
         $user->save();
         header('location: ' . BASE_URL . 'nguoi-dung');
     }
 
-    public function remove($id){
-        Users::destroy($id);
+    public function remove($ma_tai_khoan){
+        Users::destroy($ma_tai_khoan);
         header('location: ' . BASE_URL . 'nguoi-dung');
         die;
     }
