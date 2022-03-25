@@ -1,0 +1,1 @@
+<img src="./views/image/sl02.jpg" alt="" class="" style="width:100%">

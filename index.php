@@ -9,7 +9,4 @@ require_once './commons/route.php'; // bắt buộc ở sau file autoload
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 
 definedRoute($url);
-
-
-// di ẻ
 ?>
