@@ -36,7 +36,7 @@
 
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Hình</label>
-        <input name="anh_dai_dien" type="file"value="{{$user->anh_dai_dien}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+        <input name="anh_dai_dien" type="file" value="{{$user->anh_dai_dien}}"  >
     </div>
 
     <div class="mb-3">

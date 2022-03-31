@@ -77,13 +77,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'ca'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{BASE_URL . 'ca/tao-moi'}}" class="nav-link">
                    
                   <p>Tạo mới</p>
                 </a>
@@ -184,13 +184,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ BASE_URL . 'chi-nhanh'}}" class="nav-link">
                     <i class=" nav-icon"></i>
                     <p>Danh sách</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ BASE_URL . 'chi-nhanh/tao-moi'}}" class="nav-link">
                      
                     <p>Tạo mới</p>
                   </a>
