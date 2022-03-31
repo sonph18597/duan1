@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Type;
 use App\Models\Users;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController
 {
@@ -14,7 +16,7 @@ class UsersController
             'user' => $user
         ]);
     }
-
+   
     public function addForm()
     {
         return view('users.addform');
@@ -22,13 +24,16 @@ class UsersController
 
     // Function add
     // Function add
-    public function saveAdd()
-    {   $user = Users::where('ten_tai_khoan',$_POST['ten_tai_khoan'])->first();
+    public function saveAdd( )
+    {   
+       
+        $user = Users::where('ten_tai_khoan',$_POST['ten_tai_khoan'])->first();
       
         if($user){
             header('location: ' . BASE_URL . 'nguoi-dung/tao-moi?msg=Tên tài khoản dùng đã tồn tại');
             die;
         }else{
+
             Users::create([
                 'ten_tai_khoan' => $_POST['ten_tai_khoan'],
                 'so_dien_thoai' => $_POST['so_dien_thoai'],
@@ -40,6 +45,7 @@ class UsersController
             ]);
             header('location: ' . BASE_URL . 'nguoi-dung');
         }
+        
     }
 
     public function editForm($ma_tai_khoan)
@@ -56,7 +62,7 @@ class UsersController
 
     public function saveEdit($ma_tai_khoan)
     {
-
+        
         $user = Users::find($ma_tai_khoan);
         $user->ten_tai_khoan = $_POST['ten_tai_khoan'];
         $user->so_dien_thoai = $_POST['so_dien_thoai'];
@@ -64,7 +70,10 @@ class UsersController
         $user->mat_khau = $_POST['mat_khau'];
         $user->vai_tro = $_POST['vai_tro'];
         $user->email = $_POST['email'];
-        $user->anh_dai_dien = $_POST['anh_dai_dien'];
+        if($_POST['anh_dai_dien']){
+            $user->anh_dai_dien = $_POST['anh_dai_dien'];
+        }
+        
         $user->save();
         header('location: ' . BASE_URL . 'nguoi-dung');
     }
@@ -74,4 +83,10 @@ class UsersController
         header('location: ' . BASE_URL . 'nguoi-dung');
         die;
     }
+
+   
+
+ 
+
+
 }

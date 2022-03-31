@@ -34,7 +34,7 @@ class TypeController
         header('location: ' . BASE_URL . 'loai-ca');
         die;
     }
-
+    
     public function editForm($ma_loai)
     {
         $type = Type::find($ma_loai);
@@ -55,7 +55,7 @@ class TypeController
         $model = Type::where('ten_loai', $_POST['ten_loai'])->first();
        
         if (!empty($model) && $ma_loai != $model->ma_loai) {
-            header('location: ' . BASE_URL . 'loai-ca/cap-nhat_id'.$ma_loai.'?msg=Loại cá này đã tồn tại');
+            header('location: ' . BASE_URL . 'loai-ca/cap-nhat_id/'.$ma_loai.'?msg=Loại cá này đã tồn tại');
             die;
         } else {
             $type->ten_loai = $_POST['ten_loai'];

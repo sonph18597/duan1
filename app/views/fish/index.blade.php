@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('content-title')
+<a href="{{BASE_URL . 'ca/tao-moi'}}"><button type="button" class="btn btn-primary">Tạo mới</button></a>
+@endsection
 @section('main-content')
 <table class="table ">
     <thead>
@@ -25,29 +28,29 @@
     <tbody>
         @foreach ($fish as $item)
             <tr>
-                <th scope="row">{{$item->id}}</th>
-                <td>{{$item->name}}</td>
-                <td>{{$item->type_id}}</td>
-                <td>{{$item->color}}</td>
-                <td>{{$item->country}}</td>
-                <td>{{$item->size}}</td>
-                <td>{{$item->age}}</td>
-                <td>{{$item->prize}}</td>
-                <td>{{$item->price_buy}}</td>
-                <td>{{$item->price_sell}}</td>
-                <td>{{$item->date}}</td>
-                <td>{{$item->status}}</td>
-                <td>{{$item->image}}</td>
-                <td>{{$item->view}}</td>
+                <th scope="row">{{$item->ma_ca}}</th>
+                <td>{{$item->ten_ca}}</td>
+                <td>{{$item->ma_loai}}</td>
+                <td>{{$item->mau}}</td>
+                <td>{{$item->xuat_xu}}</td>
+                <td>{{$item->kich_thuoc}}</td>
+                <td>{{$item->tuoi}}</td>
+                <td>{{$item->giai_thuong}}</td>
+                <td>{{$item->gia_goc}}</td>
+                <td>{{$item->gia_ban}}</td>
+                <td>{{$item->ngay_nhap}}</td>
+                <td>{{$item->trang_thai}}</td>
+                <td>{{$item->anh}}</td>
+                <td>{{$item->luot_xem}}</td>
 
                 <td>
-                    <a href="{{BASE_URL . 'ca/cap-nhat_id'.$item->id}}">Sửa</a>
-                    <a href="{{BASE_URL . 'ca/xoa_id' . $item->id}}">Xóa</a>
-                </td>
+                    <a href="{{BASE_URL . 'ca/cap-nhat_id/'.$item->ma_ca}}"><button type="button" class="btn btn-primary">Sửa</button></a>
+                    <a href="{{BASE_URL . 'ca/xoa_id/' . $item->ma_ca}} " onclick="return confirm('Có không giữ xóa thì mất');"><button  type="button" class="btn btn-danger">Xóa</button></a>
+                    <a href="{{BASE_URL . 'ca/chi-tiet_id/'.$item->ma_ca}}"><button type="button" class="btn btn-info">Chi tiết</button></a>
+                  </td>
             </tr>
         @endforeach
     
-     
-    </tbody>
-  </table>
-  @endsection
+      </tbody>
+    </table>
+ @endsection
