@@ -10,7 +10,6 @@
         <th scope="col">Mã người dùng</th>
         <th scope="col">Tên tài khoản</th>
         <th scope="col">Email</th>
-        <th scope="col">Password</th>
         <th scope="col">Tên người dùng</th>
         <th scope="col">Số điện thoại</th>
         <th scope="col">Hình ảnh</th>
@@ -21,13 +20,14 @@
        
       </tr>
     </thead>
+   
     <tbody>
         @foreach ($user as $item)
             <tr>
                 <th scope="row">{{$item->ma_tai_khoan}}</th>
                 <td>{{$item->ten_tai_khoan}}</td>
                 <td>{{$item->email}}</td>
-                <td>{{$item->mat_khau}}</td>
+      
                 <td>{{$item->ho_ten}}</td>
                 <td>{{$item->so_dien_thoai}}</td>
                 <td><img src="{{PUBLIC_URL . '/img/' . $item->anh_dai_dien}}" width = '100px' height = '100px' alt=""></td>

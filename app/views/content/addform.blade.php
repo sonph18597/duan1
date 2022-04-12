@@ -20,9 +20,9 @@
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Người viết</label>
         <select name="ma_tai_khoan" class="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
+                <option selected>Chọn tài khoản</option>
                 @foreach ($user as $item)
-                    <option value="{{$item->ma_tai_khoan}}">{{$item->ho_ten}}</option>
+                    <option value="{{$item->ma_tai_khoan}}">{{$item->ten_tai_khoan}}</option>
                 @endforeach
         </select>
       </div>
@@ -30,8 +30,8 @@
 
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Tên cá</label>
-        <select name="ma_ca" class="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
+        <select name="ma_ca" class="form-select"  id="inputGroupSelect01">
+                <option selected >Chọn mã cá</option>
                 @foreach ($fish as $item)
                     <option value="{{$item->ma_ca}}">{{$item->ten_ca}}</option>
                 @endforeach

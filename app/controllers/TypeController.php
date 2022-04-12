@@ -2,6 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\Comment;
+use App\Models\Content;
+use App\Models\Fish;
+use App\Models\ManageFish;
+use App\Models\OrderDetail;
+use App\Models\Review;
 use App\Models\Type;
 
 class TypeController
@@ -15,8 +21,11 @@ class TypeController
     }
 
     public function addForm()
-    {
-        return view('type.addform');
+    {   
+        $type = Type::all();
+        return view('type.addform',[
+            'type' =>$type,
+        ]);
     }
 
     public function saveAdd()
@@ -27,10 +36,11 @@ class TypeController
             die;
         } else {
             Type::create([
+                'ma_loai_cha' => $_POST['ma_loai_cha'],
                 'ten_loai' => $_POST['ten_loai']
             ]);
         }
-
+        
         header('location: ' . BASE_URL . 'loai-ca');
         die;
     }
@@ -39,11 +49,14 @@ class TypeController
     {
         $type = Type::find($ma_loai);
 
+        $show = Type::all();
+
         if (!$type) {
             header('location: ' . BASE_URL . 'loai-ca');
         } else {
             return view('type.editform', [
-                'type' => $type
+                'type' => $type,
+                'show'=>$show
             ]);
         }
     }
@@ -59,6 +72,7 @@ class TypeController
             die;
         } else {
             $type->ten_loai = $_POST['ten_loai'];
+            $type->ma_loai_cha = $_POST['ma_loai_cha'];
             $type->save();
             header('location: ' . BASE_URL . 'loai-ca');
             die;
@@ -68,8 +82,47 @@ class TypeController
 
     public function remove($ma_loai)
     {
+       //xoa  sp cua loai
+        $fish = Fish::where('ma_loai',$ma_loai)->get();
+      
+        if($fish){   
+            foreach($fish as $item){
+                
+                Content :: where('ma_ca',$item->ma_ca)->delete();
+                Comment:: where('ma_ca',$item->ma_ca)->delete();
+                OrderDetail::where('ma_ca',$item->ma_ca)->delete();
+                ManageFish::where('ma_ca',$item->ma_ca)->delete();
+                Review::where('ma_ca',$item->ma_ca)->delete();
+                $item->delete();
+            } 
+            
+        }
+    
+        $types = Type::where('ma_loai_cha',$ma_loai)->get();
+        
+        if($types){
+            
+            foreach($types as $item){
+                $fishes = Fish::where('ma_loai',$item->ma_loai)->get();
+                $item->delete();
+                if($fishes){
+                    foreach($fishes as $item2){      
+                        Content :: where('ma_ca',$item2->ma_ca)->delete();
+                        Comment:: where('ma_ca',$item2->ma_ca)->delete();
+                        OrderDetail::where('ma_ca',$item2->ma_ca)->delete();
+                        ManageFish::where('ma_ca',$item2->ma_ca)->delete();
+                        Review::where('ma_ca',$item2->ma_ca)->delete();
+                        $item2->delete();
+                    }
+                }     
+            } 
+        }
+        
         Type::destroy($ma_loai);
         header('location: ' . BASE_URL . 'loai-ca');
         die;
+        
+        
     }
 }
+?>

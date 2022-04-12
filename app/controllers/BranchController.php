@@ -2,7 +2,10 @@
 namespace App\Controllers;
 
 use App\Models\Branch;
+use App\Models\Fish;
 use App\Models\ManageBranch;
+use App\Models\ManageFish;
+use App\Models\Order;
 use App\Models\Users;
 
 
@@ -57,10 +60,12 @@ class BranchController{
 
     public function detail($ma_chi_nhanh){
         $branch = Branch::find($ma_chi_nhanh);
-        $manage = ManageBranch::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
+        $order = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
+        $mana = ManageFish::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
         return view('branch.detail',[
             'branch' => $branch,
-            'manage' => $manage,
+            'order' => $order,
+            'mana' =>$mana,
         ]);
     }
 }

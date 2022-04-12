@@ -126,7 +126,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ BASE_URL . 'don-hang'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
@@ -146,7 +146,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ BASE_URL . 'binh-luan'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
@@ -165,7 +165,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ BASE_URL . 'thong-ke'}}" class="nav-link">
                    
                   <p>Danh sách</p>
                 </a>
@@ -199,6 +199,55 @@
             </li>
 
           {{-----------------}}
+
+          {{-- Bài viết --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Bài viết
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ BASE_URL . 'bai-viet'}}" class="nav-link">
+                  <i class=" nav-icon"></i>
+                  <p>Danh sách</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ BASE_URL . 'bai-viet/tao-moi'}}" class="nav-link">
+                   
+                  <p>Tạo mới</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        {{-----------------}}
+
+        {{-- Đánh giá --}}
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Đánh giá
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ BASE_URL . 'danh-gia'}}" class="nav-link">
+                <i class=" nav-icon"></i>
+                <p>Danh sách</p>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+
+      {{-----------------}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

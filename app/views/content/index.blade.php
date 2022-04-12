@@ -8,7 +8,7 @@
       <tr>
         <th scope="col">Mã bài viết</th>
         <th scope="col">Tiêu đề </th>
-        <th scope="col">Nội dung</th>
+     
         <th scope="col">Ảnh</th>
         <th scope="col">Người viết</th>
         <th scope="col">Lượt xem</th>
@@ -23,8 +23,9 @@
             <tr>
                 <th scope="row">{{$item->ma_bai_viet}}</th>
                 <td>{{$item->tieu_de}}</td>
-                <td>{{$item->noi_dung}}</td>
-                <td>{{$item->anh}}</td>
+              
+                <td><img src="{{PUBLIC_URL . '/img/' . $item->anh}}" width = '100px' height = '100px' alt=""></td>
+
                 <td>{{$item->user()->ho_ten}}</td>
                 <td>{{$item->luot_xem}}</td>
                 <td>{{$item->fish()->ten_ca}}</td>

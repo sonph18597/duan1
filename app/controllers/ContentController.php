@@ -26,7 +26,7 @@ class ContentController{
         Content::create([
             'tieu_de'=> $_POST['tieu_de'],
             'anh'=>$_POST['anh'],
-            'noi_dung'=>$_POST['noi_dung'],
+            
             'ma_ca'=>$_POST['ma_ca'],
             'ma_tai_khoan'=>$_POST['ma_tai_khoan'],
 
@@ -52,9 +52,7 @@ class ContentController{
         if($_POST['anh']){
             $content->anh = $_POST['anh'];
         }
-        if($_POST['noi_dung']){
-            $content->noi_dung = $_POST['noi_dung'];
-        }
+    
         if($_POST['ma_tai_khoan']){
             $content->ma_tai_khoan = $_POST['ma_tai_khoan'];
         }
