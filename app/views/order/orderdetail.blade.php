@@ -33,17 +33,26 @@
                 <tbody>
 
                     @foreach ($orderDetail as $item)
-                        
                         <tr>
-                            <th scope="row">{{$item->fish()->ma_ca}}</a></th>
+                            <th scope="row">{{$item->fish()->ma_ca}}</th>
                             <td>{{$item->fish()->ten_ca}}</td>
                             <td>{{$item->fish()->gia_ban}}</td>
                             <td>{{$item->so_luong}}</td>
                         </tr>
                     @endforeach
                 
-                 
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Tổng</th>
+                        <td>
+                            @foreach ($orderDetail as $item)
+                                
+                            @endforeach
+                        </td>
+                    </tr>
+                    
+                </tfoot>
               </table>
         </div>
     </div>

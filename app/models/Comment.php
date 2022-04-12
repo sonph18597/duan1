@@ -24,5 +24,18 @@ class Comment extends Model{
             return null;
         }
     }
+    // lấy tên người trả lời
+    public function getName(){
+        if($this->ma_tra_loi == 0){
+            return 'Bình luận gốc';
+        }
+        $comment = Comment::where('ma_binh_luan',$this->ma_tra_loi)->first();
+        $user = Users::where('ma_tai_khoan',$comment->ma_tai_khoan)->first();
+        if($comment){
+            return $user->ten_tai_khoan;
+        }else{
+            return null;
+        }
+    }
 }
 ?>

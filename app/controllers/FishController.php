@@ -1,8 +1,14 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Branch;
+use App\Models\Comment;
+use App\Models\Content;
 use App\Models\Fish;
 use App\Models\ManageFish;
+use App\Models\OrderDetail;
+use App\Models\Review;
+use App\Models\Type;
 
 class FishController{
     public function index(){
@@ -14,23 +20,30 @@ class FishController{
     }
 
     public function addForm(){
-        return view('fish.addform');
+        $type = Type::all();
+        $branch = Branch::all();
+        return view('fish.addform',[
+            'type'=>$type,
+            'branch'=>$branch
+        ]);
     }
 
     public function saveAdd(){
+        $fish = Fish::where('ten_ca',$_POST['ten_ca'])->first();
+        if($fish){
+            header('location: ' . BASE_URL . 'ca/tao-moi?msg= Tên cá đã tồn tại');
+            die;
+        }
         Fish::create([
             'ma_loai'=>$_POST['ma_loai'],
-            'ten_ca'=>$_POST['ten_ca'],
-            'kich_thuoc'=>$_POST['kich_thuoc'],
-            'tuoi'=>$_POST['tuoi'],
-            'giai_thuong'=>$_POST['giai_thuong'],
+            'ten_ca'=>$_POST['ten_ca'],         
             'gia_goc'=>$_POST['gia_goc'],
             'gia_ban'=>$_POST['gia_ban'],
             'anh'=>$_POST['anh'],
-            'gia_goc'=>$_POST['gia_goc'],
-            'xuat_xu'=>$_POST['xuat_xu'],
-            'ngay_nhap'=>$_POST['ngay_nhap'],
+            'xuat_xu'=>$_POST['xuat_xu'],  
+            'trang_thai'=>$_POST['trang_thai']      
         ]);
+       
         header('location: ' . BASE_URL . 'ca');
         die;
 
@@ -39,28 +52,35 @@ class FishController{
     public function editForm($ma_ca){
         
         $fish = Fish::find($ma_ca);
+        $type = Type::all();
 
         return view('fish.editform',[
             'fish'=>$fish,
+            'type'=>$type
         ]);
     }
 
     public function saveEdit($ma_ca){
         $fish = Fish::find($ma_ca);
-        $fish->ma_loai =$_POST['ma_loai'];
+        $model = Fish::where('ten_ca',$_POST['ten_ca'])->first();
+        if(!empty($model) && $ma_ca != $model->ma_ca){
+            header('location: ' . BASE_URL . 'ca/cap-nhat_id/'.$ma_ca.'?msg= Tên cá đã tồn tại');
+            die;
+        }
         $fish->ten_ca =$_POST['ten_ca'];
-        $fish->kich_thuoc =$_POST['kich_thuoc'];
-        $fish->tuoi =$_POST['tuoi'];
-        $fish->giai_thuong =$_POST['giai_thuong'];
         $fish->gia_ban =$_POST['gia_ban'];
         $fish->gia_goc =$_POST['gia_goc'];
         if($_POST['anh']){
             $fish->anh =$_POST['anh'];
         }
-        $fish->trang_thai =$_POST['trang_thai'];
+        if($_POST['trang_thai']){
+            $fish->trang_thai =$_POST['trang_thai'];
+        }
+        if($_POST['ma_loai']){
+            $fish->ma_loai =$_POST['ma_loai'];
+        }
         $fish->xuat_xu =$_POST['xuat_xu'];
-        $fish->ngay_nhap =$_POST['ngay_nhap'];
-
+     
         $fish->save();
         header('location: ' . BASE_URL . 'ca');
         die;
@@ -69,6 +89,12 @@ class FishController{
 
     public function remove($ma_ca){
         Fish::destroy($ma_ca);
+        Comment::where('ma_ca',$ma_ca)->delete();
+        Content::where('ma_ca',$ma_ca)->delete();
+        OrderDetail::where('ma_ca',$ma_ca)->delete();
+        ManageFish::where('ma_ca',$ma_ca)->delete();
+        Review::where('ma_ca',$ma_ca)->delete();
+
         header('location: ' . BASE_URL . 'ca');
         die;
 
@@ -81,6 +107,61 @@ class FishController{
             'fish'=>$fish,
             'manage'=>$manage
         ]);
+    }
+
+    public function fishBranch($ma_ca){
+        $fish = Fish::find($ma_ca);
+        $branch = Branch::all();
+        return view('fish.fishbranch',[
+            'fish' => $fish,
+            'branch'=>$branch
+        ]);
+    }
+
+    public function saveA($ma_ca){
+        
+        ManageFish::create([
+            'ma_chi_nhanh'=>$_POST['ma_chi_nhanh'],
+            'so_luong'=>$_POST['so_luong'],
+            'ma_ca'=>$ma_ca
+        ]);
+        header('location: ' . BASE_URL . 'ca/chi-tiet_id/'.$ma_ca);
+        die;
+    }
+
+    public function editF($ma_ca){
+        $mana =  ManageFish::where('ma_ca',$ma_ca)->first();
+        $branch = Branch::all();
+        return view('fish.editbranch',[
+            'mana' => $mana,
+            'branch'=>$branch
+        ]);
+    }
+
+    public function editbranch($ma_ca){
+        $model =  ManageFish::where('ma_chi_nhanh', $_POST['ma_chi_nhanh'])->first();
+       
+        $mana = ManageFish::where('ma_ca',$ma_ca)->first();
+
+        if(!empty($model) && $mana->ma_chi_nhanh !=  $_POST['ma_chi_nhanh']){
+            header('location: ' . BASE_URL . 'ca/chi-nhanh-cap-nhat_id/'.$ma_ca.'?msg=Tên chi nhánh đã tồn tại');
+            die;
+        }
+        if( $_POST['ma_chi_nhanh']){
+            $mana->ma_chi_nhanh = $_POST['ma_chi_nhanh'];
+        }
+        
+        $mana->so_luong = $_POST['so_luong'];
+        $mana->save();
+        header('location: ' . BASE_URL . 'ca/chi-tiet_id/'.$ma_ca);
+        die;
+    }
+
+    public function removeBranch($ma_chi_nhanh){
+        $fish = ManageFish::where('ma_chi_nhanh',$ma_chi_nhanh)->first();
+        $fish->delete();
+        header('location: ' . BASE_URL . 'ca/chi-tiet_id/'.$fish->ma_ca);
+        die;
     }
 }
 ?>
