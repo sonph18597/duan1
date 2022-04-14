@@ -1,0 +1,3 @@
+<?php echo $this->runChild('layouts.header'); ?>
+<?php echo $this->yieldContent('client_content'); ?>
+<?php echo $this->runChild('layouts.footer'); ?>

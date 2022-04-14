@@ -1,0 +1,27 @@
+@extends('layouts.client')
+@section('client_content')
+    
+
+
+<section class="contact_section layout_padding">
+  <div class="container ">
+    <div class="heading_container justify-content-center">
+      <h2 class="">
+        Giới Thiệu
+      </h2>
+    </div>
+    
+<p> Koi là một loại cá chép đã được thuần hóa, lai tạo và được nuôi khá phổ biến tại Nhật Bản để làm cảnh. Bên cạnh vẻ đẹp mê hồn, Koi còn được biết đến là một loại cá phong thủy cực tốt, luôn mang lại may mắn cho người chơi.
+
+cakoivn chuyên cung cấp cho khách hàng trên cả nước các loại cá Koi chất lượng tốt với giá thành ưu đãi nhất. <br>
+
+Với nguồn giống bố mẹ là cá chất lượng cao từ các trang trại nổi tiếng Nhật Bản như Omosako, Danichi, Isa, Sakai…v…v… Các thế hệ con F1 được chọn lựa gắt gao và nuôi lớn bằng thức ăn Hikari nhập khẩu từ Nhật chất lượng số 1 thế giới.
+
+Với nguồn hàng chất lượng và ổn định, chúng tôi tin: cakoivn đáp ứng được yêu cầu của những vị khách khó tính nhất trong làng cá Koi nước ta.
+</p>
+
+  </div>
+ 
+  </div>
+</section>
+@endsection

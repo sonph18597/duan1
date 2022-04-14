@@ -1,5 +1,5 @@
-<?php
-
+ <?php
+use App\Controllers\ContactController;
 use App\Controllers\BranchController;
 use App\Controllers\CommentController;
 use App\Controllers\ContentController;
@@ -8,10 +8,18 @@ use App\Controllers\FishController;
 use App\Controllers\OrderController;
 use App\Controllers\TypeController;
 use App\Controllers\UsersController;
-use Phroute\Phroute\RouteCollector; 
-use App\Controllers\PostController;
+
 use App\Controllers\ReviewController;
 use App\Controllers\StatisticalController;
+use App\Controllers\HomeController;
+use App\Controllers\KnowledgeController;
+use App\Controllers\GalleryController;
+use App\Controllers\DetailController;
+use App\Controllers\IntroController;
+use App\Controllers\LoginController;
+use App\Controllers\RegistrationController;
+use App\Controllers\ShopController;
+use Phroute\Phroute\RouteCollector;
 
 function definedRoute($url){
     $router = new RouteCollector();
@@ -56,6 +64,21 @@ function definedRoute($url){
     $router->get('ca',[FishController::class,'index']);
     $router->get('ca/tao-moi',[FishController::class,'addForm']);
     $router->post('ca/tao-moi',[FishController::class,'saveAdd']);
+    $router->get('ca/cap-nhat_id{id}',[FishController::class,'editForm']);
+    $router->post('ca/cap-nhat_id{id}',[FishController::class,'saveEdit']);
+    $router->get('ca/xoa_id{id}',[FishController::class,'remove']);
+
+    $router->get('trang-chu',[HomeController::class,'index']);
+    $router->get('lien-he',[ContactController::class,'index']);
+    $router->get('kien-thuc',[KnowledgeController::class,'index']);
+    $router->get('thu-vien',[GalleryController::class,'index']);
+    $router->get('chi-tiet',[DetailController::class,'index']);
+    $router->get('gioi-thieu',[IntroController::class,'index']);
+    $router->get('dang-nhap',[LoginController::class,'index']);
+    $router->get('dang-ki',[RegisController::class,'index']);
+    $router->get('gio-hang',[ShopController::class,'index']);
+
+
     $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
     $router->post('ca/cap-nhat_id/{ma_ca}',[FishController::class,'saveEdit']);
     $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);
@@ -94,6 +117,17 @@ function definedRoute($url){
     $router->get('xoa-danh-gia_id/{ma_danh_gia}',[ReviewController::class,'removeAll']);
 
     $router->get('xoa-danh-gia-phan-hoi_id/{ma_phan_hoi}',[ReviewController::class,'remove']);
+   
+    $router->get('thu-vien/chi_tiet',[DetailController::class,'index']);
+    $router->get('gioi-thieu',[IntroController::class,'index']);
+    $router->get('dang-nhap',[LoginController::class,'index']);
+    $router->post('dang-nhap',[LoginController::class,'login']);
+    $router->get('gio-hang',[ShopController::class,'index']);
+    $router->get('dang-ki',[RegistrationController::class,'index']);
+    $router->post('dang-ki',[RegistrationController::class,'add']);
+    $router->post('chi-tiet-tai-khoan',[DetailAccController::class,'index']);
+
+
     $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($url, PHP_URL_PATH));
     // Print out the value returned from the dispatched function
