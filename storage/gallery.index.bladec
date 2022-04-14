@@ -30,7 +30,7 @@
  </style>
 <?php
  $host='localhost';
- $dbname='du_an_1';
+ $dbname='du-an-1';
  $username='root';
  $password='';
  try {

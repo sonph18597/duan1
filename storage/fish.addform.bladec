@@ -73,7 +73,7 @@
 <?php /* Ảnh */ ?>
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Hình</label><br>
- <input name="anh[]" type="file" multiple >
+ <input name="anh" type="file" multiple >
  </div>
  <button type="submit" class="btn btn-primary">Thêm mới</button>
  </form>

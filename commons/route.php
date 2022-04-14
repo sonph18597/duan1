@@ -64,9 +64,11 @@ function definedRoute($url){
     $router->get('ca',[FishController::class,'index']);
     $router->get('ca/tao-moi',[FishController::class,'addForm']);
     $router->post('ca/tao-moi',[FishController::class,'saveAdd']);
-    $router->get('ca/cap-nhat_id{id}',[FishController::class,'editForm']);
-    $router->post('ca/cap-nhat_id{id}',[FishController::class,'saveEdit']);
-    $router->get('ca/xoa_id{id}',[FishController::class,'remove']);
+    $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
+    $router->post('ca/cap-nhat_id/{ma_ca}',[FishController::class,'saveEdit']);
+    $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);
+    $router->get('ca/chi-tiet_id/{ma_ca}',[FishController::class,'detail']);
+    
 
     $router->get('trang-chu',[HomeController::class,'index']);
     $router->get('lien-he',[ContactController::class,'index']);
@@ -74,16 +76,9 @@ function definedRoute($url){
     $router->get('thu-vien',[GalleryController::class,'index']);
     $router->get('chi-tiet',[DetailController::class,'index']);
     $router->get('gioi-thieu',[IntroController::class,'index']);
-    $router->get('dang-nhap',[LoginController::class,'index']);
-    $router->get('dang-ki',[RegisController::class,'index']);
-    $router->get('gio-hang',[ShopController::class,'index']);
-
-
-    $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
-    $router->post('ca/cap-nhat_id/{ma_ca}',[FishController::class,'saveEdit']);
-    $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);
-    $router->get('ca/chi-tiet_id/{ma_ca}',[FishController::class,'detail']);
+   
     
+
     $router->get('ca/chi-nhanh_id/{ma_ca}',[FishController::class,'fishBranch']);
     $router->post('ca/chi-nhanh_id/{ma_ca}',[FishController::class,'saveA']);
     $router->get('ca/chi-nhanh-cap-nhat_id/{ma_ca}',[FishController::class,'editF']);
@@ -115,11 +110,10 @@ function definedRoute($url){
     $router->get('danh-gia',[ReviewController::class,'index']);
     $router->get('tra-loi-danh-gia_id/{ma_danh_gia}',[ReviewController::class,'detail']);
     $router->get('xoa-danh-gia_id/{ma_danh_gia}',[ReviewController::class,'removeAll']);
-
     $router->get('xoa-danh-gia-phan-hoi_id/{ma_phan_hoi}',[ReviewController::class,'remove']);
    
     $router->get('thu-vien/chi_tiet',[DetailController::class,'index']);
-    $router->get('gioi-thieu',[IntroController::class,'index']);
+ 
     $router->get('dang-nhap',[LoginController::class,'index']);
     $router->post('dang-nhap',[LoginController::class,'login']);
     $router->get('gio-hang',[ShopController::class,'index']);

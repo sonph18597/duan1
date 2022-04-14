@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-6 col-xl-7">
           <div class="img-box">
-            <img src="http://localhost/du-an-1/public/images/15.jpg" alt="" />
+            <img src="{{PUBLIC_URL}}images/15.jpg" alt="" />
           </div>
         </div>
         <div class="col-md-5 col-xl-5">
@@ -88,36 +88,36 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
           <div class="box-1-container">
             <div class="b-1">
               <div class="img-box">
-                <img src="http://localhost/du-an-1/public/images/1.jpg" alt="">
+                <img src="{{PUBLIC_URL}}images/1.jpg" alt="">
               </div>
               <div class="img-box">
-                <img src="http://localhost/du-an-1/public/images/52.jpg" alt="">
+                <img src="{{PUBLIC_URL}}images/52.jpg" alt="">
               </div>
             </div>
             <div class="b-2">
               <div class="img-box">
-                <img src="http://localhost/du-an-1/public/images/5.jpg" alt="">
+                <img src="{{PUBLIC_URL}}images/5.jpg" alt="">
               </div>
               <div class="img-box">
-                <img src="http://localhost/du-an-1/public/images/8.jpg" alt="">
+                <img src="{{PUBLIC_URL}}images/8.jpg" alt="">
               </div>
             </div>
           </div>
           <div class="b-3">
             <div class="img-box">
-              <img src="http://localhost/du-an-1/public/images/7.jpg" alt="">
+              <img src="{{PUBLIC_URL}}images/7.jpg" alt="">
             </div>
           </div>
         </div>
         <div class="box-2">
           <div class="img-box">
-            <img src="http://localhost/du-an-1/public/images/40.jpg" alt="">
+            <img src="{{PUBLIC_URL}}images/40.jpg" alt="">
           </div>
           <div class="img-box">
-            <img src="http://localhost/du-an-1/public/images/9.jpg" alt="">
+            <img src="{{PUBLIC_URL}}images/9.jpg" alt="">
           </div>
           <div class="img-box flex-grow-1">
-            <img src="http://localhost/du-an-1/public/images/36.jpg" alt="">
+            <img src="{{PUBLIC_URL}}images/36.jpg" alt="">
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
           <div class="client_box">
             <div class="detail_box">
               <div class="img_box">
-                <img src="http://localhost/du-an-1/public/images/long.jpg">
+                <img src="{{PUBLIC_URL}}images/long.jpg">
               </div>
               <h5>
                 Triều Trẻ Trâu
@@ -156,7 +156,7 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
           <div class="client_box">
             <div class="detail_box">
               <div class="img_box">
-                <img src="http://localhost/du-an-1/public/images/trieu.jpg">
+                <img src="{{PUBLIC_URL}}images/trieu.jpg">
               </div>
               <h5>
                 Long lồng lộn
