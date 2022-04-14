@@ -14,11 +14,9 @@ use App\Controllers\GalleryController;
 use App\Controllers\DetailController;
 use App\Controllers\IntroController;
 use App\Controllers\LoginController;
+use App\Controllers\RegistrationController;
 use App\Controllers\ShopController;
-use App\Controllers\RegisController;
-use Phroute\Phroute\RouteCollector; 
-use App\Controllers\PostController;
-
+use Phroute\Phroute\RouteCollector;
 
 function definedRoute($url){
     $router = new RouteCollector();
@@ -104,6 +102,16 @@ function definedRoute($url){
     
 
    
+    $router->get('thu-vien/chi_tiet',[DetailController::class,'index']);
+    $router->get('gioi-thieu',[IntroController::class,'index']);
+    $router->get('dang-nhap',[LoginController::class,'index']);
+    $router->post('dang-nhap',[LoginController::class,'login']);
+    $router->get('gio-hang',[ShopController::class,'index']);
+    $router->get('dang-ki',[RegistrationController::class,'index']);
+    $router->post('dang-ki',[RegistrationController::class,'add']);
+    $router->post('chi-tiet-tai-khoan',[DetailAccController::class,'index']);
+
+
     $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($url, PHP_URL_PATH));
     // Print out the value returned from the dispatched function
