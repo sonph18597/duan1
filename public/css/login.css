@@ -1,0 +1,39 @@
+.login_container #form{
+      
+    margin: 100px auto 0;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 100px
+}
+.login_container #form form h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.login_container #form form button{
+  border-radius: 30px;
+}
+.login_container input[type="text"],
+.login_container input[type="password"]
+{
+    width: 97%;
+    padding: 5px 2px;
+}
+.login_container #form>a{
+    text-decoration: none;
+}
+.login_container button{
+    background-color: blue;
+    border: none;
+    color: #ffffff;
+    padding: 5px 20px;
+    width: 98%;
+}
+.login_container button:hover{
+    color: chartreuse;
+    cursor: pointer;
+}
+.login_container input[type="text"]:focus
+.login_container input[type="password"]:focus{
+    outline-color: chocolate;
+}

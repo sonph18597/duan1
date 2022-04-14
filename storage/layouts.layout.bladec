@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+ integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <link rel="stylesheet" href="http://localhost/du-an-1/public/css/css.css">
+</head>
+<body>
+
+ <div class="container">
+ <div class="header">
+ <div class="header1">TRẠI CÁ CẢNH CHUYÊN CUNG CẤP CÁ KOI</div>
+ <div class="header2">CONTACT T2-T7 08:00 - 19:00 CN 08:00-13.00
+0936 930 227 </div>
+ </div>      
+ <div class="search">
+ <div class="logo">
+ <img src="./views/image/logo.png" alt="">
+ </div>
+ <form>
+ <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." />
+ <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+ </form>
+ <button id="cart">
+ <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+ Giỏ Hàng
+ </button>
+ </div>
+
+ <div class="main" >
+ <div class="main-left">
+ 
+ 
+ 
+ </div>
+ <div>
+ <?php echo $this->yieldContent('contact'); ?>
+ </div>
+ 
+ </div>
+ <footer>
+ <div class="footer">
+ <div class="footer1"> <h3>Thông tin liên hệ</h3>
+ Thời gian làm việc <br>
+ Thứ 2 - Thứ 7 từ 08:00 - 19:00 <br>
+
+ Chủ nhật từ 08.00 - 13:00<br>
+
+ Điện Thoại/Zalo : 0961080094<br>
+
+ Địa chỉ : Trịnh Văn Bô <br> </div>
+ <div class="footer1"> <h3>Chính sách</h3>
+ <a href=""> Hình thức thanh toán <br> </a>
+
+ <a href=""> Chính sách vận chuyển <br> </a>
+
+ <a href=""> Chính sách bảo hành <br> </a>
+ </div>
+ <div class="footer1"> <h3>Về chúng tôi</h3>
+ <a href="">Giới thiệu<br> </a> 
+ <a href="">Tuyển dụng <br> </a> 
+ <a href="">Liên hệ<br> </a> 
+ <a href="">Fanpage<br> </a> 
+ <a href="">Kenh Youtube<br> </a> 
+ <a href="">Kênh Shoppe<br> </a> 
+ </div>
+ <div class="footer1"> <h3>Bản quyền shop</h3> 
+ <img src="./views/image/sl03.jpg" alt="" width="120px">
+ </div>
+ </div>
+ </div>
+ </footer>
+ </div>
+</body>
+</html>

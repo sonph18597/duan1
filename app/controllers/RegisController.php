@@ -1,8 +1,8 @@
 <?php
 namespace App\Controllers;
-class LoginController{
+class RegisController{
     public function index(){
-        return view('login.index');
+        return view('regis.index');
     }
 }
 ?>
