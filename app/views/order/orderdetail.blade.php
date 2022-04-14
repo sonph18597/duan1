@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content-title')
-<h2>ĐƠN HÀNG CIH TIẾT</h2>
+<h2>ĐƠN HÀNG CHI TIẾT</h2>
 @endsection
 @section('main-content')
     
@@ -42,17 +42,7 @@
                     @endforeach
                 
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th scope="row">Tổng</th>
-                        <td>
-                            @foreach ($orderDetail as $item)
-                                
-                            @endforeach
-                        </td>
-                    </tr>
-                    
-                </tfoot>
+              
               </table>
         </div>
     </div>

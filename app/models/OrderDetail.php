@@ -15,5 +15,6 @@ class OrderDetail extends Model{
             return null;
         }
     }
+
 }
 ?>

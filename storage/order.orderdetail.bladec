@@ -1,6 +1,6 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('content-title'); ?>
-<h2>ĐƠN HÀNG CIH TIẾT</h2>
+<h2>ĐƠN HÀNG CHI TIẾT</h2>
 <?php $this->stopSection(); ?>
 <?php $this->startSection('main-content'); ?>
  
@@ -43,18 +43,7 @@
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  
  </tbody>
- <tfoot>
- <tr>
- <th scope="row">Tổng</th>
- <td>
- <?php $__currentLoopData = $orderDetail; $this->addLoop($__currentLoopData);$this->getFirstLoop();
- foreach($__currentLoopData as $item): $loop = $this->incrementLoopIndices();  ?>
  
- <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
- </td>
- </tr>
- 
- </tfoot>
  </table>
  </div>
  </div>

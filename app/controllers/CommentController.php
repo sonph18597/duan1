@@ -27,7 +27,8 @@ class CommentController{
     public function remove($ma_binh_luan){
         $comment = Comment::where('ma_binh_luan',$ma_binh_luan)->first();
         $comment->delete();
-        header('location: ' . BASE_URL . 'binh-luan/chi-tiet_id/'.$comment->ma_ca);
+        $feedback = Comment::where('ma_tra_loi',$ma_binh_luan)->delete();
+        header('location: ' . BASE_URL . 'binh-luan');
         die;
     }
     
@@ -39,10 +40,17 @@ class CommentController{
     }
 
     public function feedBack($ma_binh_luan){
-        $comment = Comment::where('ma_phan_hoi',$ma_binh_luan)->get();
+        $comment = Comment::where('ma_tra_loi',$ma_binh_luan)->get();
         return view('comment.feedback',[
             'comment' => $comment,
+            'ma_binh_luan' => $ma_binh_luan
         ]);
+    }
+    
+    public function removeFeedBack($ma_binh_luan){
+        $comment = Comment::where('ma_tra_loi',$ma_binh_luan)->first();
+        header('location: ' . BASE_URL . 'binh-luan');
+        die;
     }
 }
 ?>

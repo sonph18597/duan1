@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content-title')
-<h2>Bình luận chi tiết : {{$comment[0]->fish()->ten_ca}}</h2>
+<h2>Phản hồi bình luận :  {{$ma_binh_luan}}</h2>
 @endsection
 @section('main-content')
 
@@ -21,20 +21,17 @@
         @foreach ($comment as $item)
         
             <tr>
-              @if ($item->ma_tra_loi == 0)
                 <th scope="row">{{$item->ma_binh_luan}}</th>
                 <td>{{$item->noi_dung}}</td>
                 <td>{{$item->ngay_binh_luan}}</td>
                 <td>{{$item->user()->ten_tai_khoan}}</td>
 
                 <td>
-                    <a href="{{BASE_URL . 'binh-luan/phan-hoi_id/'.$item->ma_binh_luan}}"><button type="button" class="btn btn-primary">Chi tiết</button></a>
-                    <a href="{{BASE_URL . 'binh-luan/xoa_id/' . $item->ma_binh_luan}} "  onclick="return confirm('Có không giữ xóa thì mất');"><button  type="button" class="btn btn-danger">Xóa</button></a>
+                    <a href="{{BASE_URL . 'binh-luan/xoa-phan-hoi_id/' . $item->ma_binh_luan}} "  onclick="return confirm('Có không giữ xóa thì mất');"><button  type="button" class="btn btn-danger">Xóa</button></a>
                 </td>
-              @endif
-
             </tr>
-        @endforeach   
+        @endforeach
+    
      
     </tbody>
   </table>

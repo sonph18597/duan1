@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content-title')
-THỐNG KÊ CHI NHÁNH {{$branh->ten_chi_nhanh}}
+THỐNG KÊ CHI NHÁNH {{$branch->ten_chi_nhanh}}
 @endsection
 @section('main-content')
 <table class="table ">
@@ -15,7 +15,7 @@ THỐNG KÊ CHI NHÁNH {{$branh->ten_chi_nhanh}}
         @foreach ($mana as $item)
             <tr>
                 <th scope="row">{{$item->fish()->ten_ca}}</th>
-                <td>{{}}</td>
+                <td>{{$item->so_luong}}</td>
             </tr>
         @endforeach
    

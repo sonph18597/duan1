@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model{
     protected $table = 'binh_luan';
     public $timestamps = false;
-    protected $fillable = ['ma_binh_luan','noi-dung','ngay_binh_luan','ma_ca','ma_tai_khoan'];
+    protected $fillable = ['ma_binh_luan','noi_dung','ngay_binh_luan','ma_tra_loi','ma_ca','ma_tai_khoan'];
     protected $primaryKey = 'ma_binh_luan';
     public function user(){
         $user = Users::find($this->ma_tai_khoan);
