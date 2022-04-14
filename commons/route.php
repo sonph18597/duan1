@@ -1,5 +1,5 @@
-<?php
-
+ <?php
+use App\Controllers\ContactController;
 use App\Controllers\BranchController;
 use App\Controllers\CommentController;
 use App\Controllers\ContentController;
@@ -8,6 +8,14 @@ use App\Controllers\FishController;
 use App\Controllers\OrderController;
 use App\Controllers\TypeController;
 use App\Controllers\UsersController;
+use App\Controllers\HomeController;
+use App\Controllers\KnowledgeController;
+use App\Controllers\GalleryController;
+use App\Controllers\DetailController;
+use App\Controllers\IntroController;
+use App\Controllers\LoginController;
+use App\Controllers\ShopController;
+use App\Controllers\RegisController;
 use Phroute\Phroute\RouteCollector; 
 use App\Controllers\PostController;
 
@@ -55,6 +63,21 @@ function definedRoute($url){
     $router->get('ca',[FishController::class,'index']);
     $router->get('ca/tao-moi',[FishController::class,'addForm']);
     $router->post('ca/tao-moi',[FishController::class,'saveAdd']);
+    $router->get('ca/cap-nhat_id{id}',[FishController::class,'editForm']);
+    $router->post('ca/cap-nhat_id{id}',[FishController::class,'saveEdit']);
+    $router->get('ca/xoa_id{id}',[FishController::class,'remove']);
+
+    $router->get('trang-chu',[HomeController::class,'index']);
+    $router->get('lien-he',[ContactController::class,'index']);
+    $router->get('kien-thuc',[KnowledgeController::class,'index']);
+    $router->get('thu-vien',[GalleryController::class,'index']);
+    $router->get('chi-tiet',[DetailController::class,'index']);
+    $router->get('gioi-thieu',[IntroController::class,'index']);
+    $router->get('dang-nhap',[LoginController::class,'index']);
+    $router->get('dang-ki',[RegisController::class,'index']);
+    $router->get('gio-hang',[ShopController::class,'index']);
+
+
     $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
     $router->post('ca/cap-nhat_id/{ma_ca}',[FishController::class,'saveEdit']);
     $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);

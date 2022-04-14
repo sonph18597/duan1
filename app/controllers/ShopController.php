@@ -1,8 +1,8 @@
 <?php
 namespace App\Controllers;
-class LoginController{
+class ShopController{
     public function index(){
-        return view('login.index');
+        return view('shop.index');
     }
 }
 ?>
