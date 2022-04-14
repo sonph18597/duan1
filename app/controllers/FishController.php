@@ -29,6 +29,7 @@ class FishController{
     }
 
     public function saveAdd(){
+        
         $fish = Fish::where('ten_ca',$_POST['ten_ca'])->first();
         if($fish){
             header('location: ' . BASE_URL . 'ca/tao-moi?msg= Tên cá đã tồn tại');
@@ -61,6 +62,7 @@ class FishController{
     }
 
     public function saveEdit($ma_ca){
+        var_dump($_POST['anh[]']);die;
         $fish = Fish::find($ma_ca);
         $model = Fish::where('ten_ca',$_POST['ten_ca'])->first();
         if(!empty($model) && $ma_ca != $model->ma_ca){
@@ -143,10 +145,7 @@ class FishController{
        
         $mana = ManageFish::where('ma_ca',$ma_ca)->first();
 
-        if(!empty($model) && $mana->ma_chi_nhanh !=  $_POST['ma_chi_nhanh']){
-            header('location: ' . BASE_URL . 'ca/chi-nhanh-cap-nhat_id/'.$ma_ca.'?msg=Tên chi nhánh đã tồn tại');
-            die;
-        }
+       
         if( $_POST['ma_chi_nhanh']){
             $mana->ma_chi_nhanh = $_POST['ma_chi_nhanh'];
         }
