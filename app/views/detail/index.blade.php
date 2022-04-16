@@ -16,7 +16,7 @@
     .ca .pro .img{
         display: flex;
         align-items: center;
-        border-radius: 50px;
+        border-radius: 20px;
         width: 450;
         height: 450;
         background-color: black;
@@ -56,11 +56,11 @@
         display: flex;
         flex-direction: column;
     }
-    .show_comment>div{
+    .show_comment>.cmt,.rep_comment{
         display: flex;
         padding: 10px 0;
     }
-    .comment img{
+    .comment img,.danh_gia img{
         border-radius: 50%;
         margin-right: 10px;
     }
@@ -78,10 +78,37 @@
     .rep_comment{
         margin-left:50px;
     }
+    .rep{
+        display: none;
+        margin-left:50px;
+    }
+    .button_reply{
+        cursor: pointer;
+        color: blue;
+    }
     .buy{
         padding: 2px 5px;
         border:1px solid blue;
         border-radius: 5px;
+    }
+    .bai_viet{
+        margin-bottom: 50px;
+    }
+    .bai_viet .img img{
+        width: 100px;
+        height: 100px;
+        border-radius:10px;
+        margin-right: 20px;  
+    }
+    .bai_viet>div{
+        display: flex;
+        margin-bottom:20px;
+    }
+    .bai_viet .tieu_de{
+        background-color: rgb(217, 223, 233);
+        flex: 1;
+        border-radius:10px;
+        padding: 10px; 
     }
 </style>
 <?php
@@ -108,18 +135,38 @@
     $stmt = $conn->prepare($sql1);
     $stmt->execute();
     $comments = $stmt -> fetchAll();
+
+
                         
     $sql2 = "select * from bai_viet WHERE ma_ca=$maca LIMIT 3";
     $stmt = $conn->prepare($sql2);
     $stmt->execute();
-    $bai_viet = $stmt -> fetchAll();
+    $list_bai_viet = $stmt -> fetchAll();
+
+    $sql3 = "select * from danh_gia JOIN tai_khoan ON danh_gia.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE danh_gia.ma_ca=$maca LIMIT 5";
+    $stmt = $conn->prepare($sql3);
+    $stmt->execute();
+    $list_danh_gia = $stmt -> fetchAll(); 
 ?>
+<script>
+    function buy(id){
+        
+    }
+    function repCmt(id){
+        let rep = document.getElementById(id);
+        if (rep.style.display != "block") rep.style.display = "block";
+            else rep.style.display = "none";
+        console.log(rep);
+    }
+</script>
 <h2>Thư Viện/<?= $fish['ten_ca'] ?></h4>
 <div class="container">
     <div class="ca">
         <div class="pro">
                 <div class="img">
-                    <img src="http://localhost/du-an-1/public/images/<?= $fish['anh'] ?>" width="450px" />
+                    <?php if($fish['anh']){ ?>
+                        <img src="{{PUBLIC_URL . '/images/'.$fish['anh']}}" width="450px" />
+                    <?php } ?>
                 </div>
                 
                 <div class="info_detail">    
@@ -142,13 +189,13 @@
                             Nguồn Gốc: <?= $fish['xuat_xu'] ?>
                         </div>
                     </div>
-                    <a class="buy" href="" onclick="buy($maca)">Đặt mua</a>
+                    <a class="buy" href="" onclick="buy(<?php echo $fish['ma_ca'] ?>)">Đặt mua</a>
                 </div>
 
         </div> 
         <div class="comment"> 
                 <h2>Bình luận</h2>
-                <form action="" >
+                <form action="" method="POST">
                     <img src="{{PUBLIC_URL . '/images/0.jpg'}}" alt="" width="50px" height="50px">
                     <input name="noi_dung">
                     <div>
@@ -159,7 +206,7 @@
                 <div class="show_comment">
                     <?php if ($comments){ ?>
                         @foreach ($comments as $comment)
-                            <div>
+                            <div class="cmt">
                                 <div class="user_comment">
                                     <img src="{{PUBLIC_URL . '/images/0.jpg'}}" width="50px" height="50px" alt="">
                                 </div>
@@ -168,9 +215,18 @@
                                         <span><?= $comment['ten_tai_khoan']; ?></span>
                                         <span><?= $comment['ngay_binh_luan'];?></span> 
                                         <span><p><?= $comment['noi_dung']; ?></p></span>                                 
-                                    </div>                                            
+                                    </div>       
+                                    <div><span onclick="repCmt(<?= $comment['ma_binh_luan'] ?>)" class="button_reply">trả lời</span></div>                                     
                                 </div>
-                                
+                            </div>
+                            <div class="rep" id="<?= $comment['ma_binh_luan'] ?>">
+                                <form action="" method="POST">
+                                    <img src="{{PUBLIC_URL . '/images/0.jpg'}}" alt="" width="50px" height="50px">
+                                    <input name="noi_dung">
+                                    <div>
+                                        <button type="submit">Gửi</button>
+                                    </div> 
+                                </form>
                             </div>
                             <?php
                                 $id_rep_comments=$comment['ma_binh_luan'];           
@@ -200,9 +256,44 @@
                     } ?>
                 </div>               
         </div>
+        <div class="danh_gia">
+            <h2>Đánh giá của khách hàng</h2>
+            <div class="show_comment">
+                <?php if ($list_danh_gia){ ?>
+                    @foreach ($list_danh_gia as $danh_gia)
+                        <div class="cmt">
+                            <div class="user_comment">
+                                <img src="{{PUBLIC_URL . '/images/0.jpg'}}" width="50px" height="50px" alt="">
+                            </div>
+                            <div class="text_comment">
+                                <div>                           
+                                    <span><?= $danh_gia['ten_tai_khoan']; ?></span>
+                                    <span><?= $danh_gia['ngay_danh_gia'];?></span> 
+                                    <span><p><?= $danh_gia['noi_dung']; ?></p></span>                                 
+                                </div>                                            
+                            </div>
+                            
+                        </div>
+                        
+                    @endforeach
+                <?php } else {
+                    echo "Sản phẩm chưa có đánh giá nào";
+                } ?>
+            </div>               
+        </div>
+
         <div class="bai_viet">
             <h2>Bài viết liên quan</h2>
-            <div></div>
+            @foreach ($list_bai_viet as $bai_viet)
+                <div>
+                    <div class="img">
+                        <a href=""><img src="{{PUBLIC_URL . '/images/0.jpg'}}" alt=""></a>
+                    </div>
+                    <div class="tieu_de">
+                        <a href=""><?php echo $bai_viet['tieu_de'] ?></a>
+                    </div>
+                </div>
+            @endforeach
         </div>       
     </div>
 </div>
