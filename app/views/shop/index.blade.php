@@ -39,7 +39,7 @@
         display: block;
         width: 150px;
     }
-    form input{
+    .thong-tin input{
         padding: 2px 5px;
         border-radius: 5px; 
     }
@@ -54,6 +54,21 @@
         -moz-appearance: none;
         appearance: none;
         margin: 0; 
+    }
+    .tong-tien{
+        display: flex;
+        justify-content: flex-end;
+        margin-right:50px; 
+    }
+    
+    .login>a{
+        display: flex;
+        justify-content: space-around;
+        padding: 2px;
+        margin:0 auto 50px; 
+        border: 1px solid blue;
+        width: 150px;
+        border-radius:5px; 
     }
 </style>
 
@@ -74,7 +89,10 @@
             </div> 
             <hr>
             @foreach($_SESSION['shoping'] as $product)
-                <?php $ma_ca = $product['ma_ca'];?>
+                <?php 
+                    $ma_ca = $product['ma_ca'];
+                    $tong_tien=0;
+                ?>
                 <div class="row">
                     <div class="ten"><?= $product['ten_ca'] ?></div>
                     <div class="sl">
@@ -85,25 +103,35 @@
                     <div class="gia"><?= number_format($product['gia_ban'], 0, '', ",")." đ" ?></div>
                     <div class="tien"><?= number_format($product['gia_ban']*$product['so_luong'], 0, '', ",")." đ" ?></div>
                     <div class="del"><a href="{{BASE_URL.'app/views/shop/save-update-shoping.php?ma_ca='.$ma_ca.'&action=delete'}}">xóa</a></div>
+                    <?php $tong_tien = $tong_tien + $product['gia_ban']*$product['so_luong'] ?>
                 </div>
                 <hr>
             @endforeach
-            <h2>Thông tin đơn hàng</h2>
-            <form class="thong-tin" action="{{BASE_URL.'app/views/shop/save-dat-hang.php'}}" method="post">
-                <div>
-                    <span>Họ tên:</span>
-                    <input type="text" name="ho_ten" value="<?php echo $_SESSION['user']['ho_ten'] ?>" required>
+            <div class="tong-tien"><span>Tổng: <?php echo number_format($tong_tien, 0, '', ",")." đ" ?> </span></div>
+            <?php if(isset($_SESSION['user'])){ ?>
+                <h2>Thông tin đơn hàng</h2>
+                <form class="thong-tin" action="{{BASE_URL.'app/views/shop/save-dat-hang.php'}}" method="post">
+                    <div>
+                        <span>Họ tên:</span>
+                        <input type="text" name="ho_ten" value="<?php echo $_SESSION['user']['ho_ten'] ?>" required>
+                    </div>
+                    <div>
+                        <span>Địa chỉ:</span>
+                        <input type="text" name="dia_chi" required>
+                    </div>
+                    <div>
+                        <span>Số điện thoại:</span>
+                        <input type="number" name="sdt" value="<?php echo $_SESSION['user']['so_dien_thoai'] ?>" required>
+                    </div>
+                    <button type="submit">Đặt hàng</button>
+                </form>
+            <?php } else { ?>
+                <div class="login">
+                    <h2>Vui lòng đăng nhập</h2>
+                    <a href="{{BASE_URL.'dang-nhap'}}"> Đăng nhập </a>
                 </div>
-                <div>
-                    <span>Địa chỉ:</span>
-                    <input type="text" name="dia_chi" required>
-                </div>
-                <div>
-                    <span>Số điện thoại:</span>
-                    <input type="number" name="sdt" value="<?php echo $_SESSION['user']['so_dien_thoai'] ?>" required>
-                </div>
-                <button type="submit">Đặt hàng</button>
-            </form>
+                
+            <?php } ?>
         </div>
 <?php } else { ?>
         <div class="mess"> Bạn chưa thêm sản phẩm nào </div>

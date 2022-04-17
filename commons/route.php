@@ -8,7 +8,7 @@ use App\Controllers\FishController;
 use App\Controllers\OrderController;
 use App\Controllers\TypeController;
 use App\Controllers\UsersController;
-
+use App\Controllers\ShopingController;
 use App\Controllers\ReviewController;
 use App\Controllers\StatisticalController;
 use App\Controllers\HomeController;
@@ -127,6 +127,7 @@ function definedRoute($url){
     $router->get('dang-ki',[RegistrationController::class,'index']);
     $router->post('dang-ki',[RegistrationController::class,'add']);
     $router->get('dang-xuat',[LoginController::class,'logout']);
+    $router->get('chi-tiet-don-hang',[ShopingController::class,'index']);
     $router->get('chi-tiet-tai-khoan',[DetailAccController::class,'index']);
     $router->post('chi-tiet-tai-khoan',[DetailAccController::class,'up_img']);
     $router->get('cap-nhat-tai-khoan',[UpdateAccController::class,'index']);
