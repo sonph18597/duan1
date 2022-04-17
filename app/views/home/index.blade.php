@@ -39,7 +39,6 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
@@ -65,7 +64,7 @@
               <a href="{{BASE_URL.'dang-nhap'}}">
                 Log in
               </a>
-              <a href="">
+              <a href="{{BASE_URL.'gio-hang'}}">
                 <img src="http://localhost/duan1/public/images/cart.png" alt="">
               </a>
               <form class="form-inline" action="{{BASE_URL.'thu-vien'}}">

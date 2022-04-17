@@ -82,10 +82,10 @@
               <?php
               foreach ($fishs as $fish) {
               ?>
-                  <a href="{{BASE_URL.'chi-tiet/'. $fish['ma_ca']}} ">
+                  <a href="{{BASE_URL.'chi-tiet?ma_ca='. $fish['ma_ca']}} ">
                     <div class="fish">                         
-                            <div class="fish_image">
-                                <img src="{{PUBLIC_URL . '/images/'}}<?= $fish['anh'] ?>" width="150px" />
+                            <div class="fish_image">                              
+                                  <img src="{{PUBLIC_URL . '/images/'}}<?= $fish['anh'] ?>" width="150px" />
                             </div>
                             <div class="ten">
                                 <?= $fish['ten_ca'] ?>
