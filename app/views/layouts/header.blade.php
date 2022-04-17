@@ -66,7 +66,7 @@
                 Log in
               </a>
               <a href="{{BASE_URL.'gio-hang'}}">
-                <img src="http://localhost/duan1/public/images/cart.png" alt="">
+                <img src="{{PUBLIC_URL.'images/cart.png'}}" alt="">
               </a>
               <form class="form-inline" action="{{BASE_URL.'thu-vien'}}">
                 <input type="text" name="category">
