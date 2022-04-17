@@ -12,11 +12,11 @@
             <br>
         </div>
             <?php if ($_SESSION ["user"]["vai_tro"] == "Admin" || $_SESSION ["user"]["vai_tro"] == "Admin chi nhánh") :?>
-                    <div> <a href="{{ BASE_URL. 'ca'}}">QUẢN LÍ </a> </div> <br>
+                    <div> <a href="{{ BASE_URL. 'ca'}}">TRANG QUẢN TRỊ </a> </div> <br>
             <?php endif;?>
 
             <?php if ($_SESSION ["user"]["vai_tro"] == "Admin" || $_SESSION ["user"]["vai_tro"] == "Admin chi nhánh" || $_SESSION ["user"]["vai_tro"] == "cộng tác viên" ):?>
-                <div><a href="{{ BASE_URL. 'ca'}}">QUẢN  BÀI VIẾT</a></div> <br>
+                <div><a href="{{ BASE_URL. 'chi-tiet-don-hang'}}">ĐƠN HÀNG CỦA TÔI</a></div> <br>
             <?php endif;?>
                 <div><a href="{{ BASE_URL. 'cap-nhat-mat-khau'}}">ĐỔI MẬT KHẨU</a></div> <br>
             <div> <a href="{{ BASE_URL. 'cap-nhat-tai-khoan'}}">THAY ĐỔI THÔNG TIN CỦA BẠN</a></div> <br>
@@ -101,7 +101,7 @@
  float: left;
  margin-top:10px; 
 }
-input{
+input[type=file]{
     width: 90px;
 }
 .detailAcc_option img{

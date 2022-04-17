@@ -40,7 +40,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-<<<<<<< HEAD
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
  <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
  <ul class="navbar-nav  ">
@@ -90,54 +89,3 @@
  </div>
  
 
-=======
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{BASE_URL.'trang-chu'}}">Trang chủ <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{BASE_URL.'gioi-thieu'}}">Giới Thiệu</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="{{BASE_URL.'kien-thuc'}}"> Kiến thức</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{BASE_URL.'thu-vien'}}"> Thư Viện </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{BASE_URL.'lien-he'}}">Liên hệ</a>
-                </li>
-                
-              </ul>
-            </div>
-            <div class="quote_btn-container ">
-              <?php if (isset($_SESSION ["user"])) : ?>
-                <a href="{{BASE_URL.'chi-tiet-tai-khoan'}}"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
-                <?php
-                      $anh = $_SESSION ["user"]["anh_dai_dien"];
-                     
-                ?>
-                <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" alt="" style=" width: 40px;border-radius: 100px;">
-              <?php else :?>
-                <a href="{{BASE_URL.'dang-nhap'}}"> Log in </a>
-              <?php endif ;?>
-
-
-              <a href="{{BASE_URL.'gio-hang'}}">
-                <img src="{{PUBLIC_URL.'images/cart.png'}}" alt="">
-              </a>
-              <form class="form-inline" action="{{BASE_URL.'thu-vien'}}">
-                <input type="text" name="category">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-  </div>
-   
-
->>>>>>> db3542e8d5fca4586bf845c26ca8952f2e23f3a3
