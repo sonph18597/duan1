@@ -1,5 +1,6 @@
 @extends('layouts.client')
 @section('client_content')
+
 <style>
   .post_list{
     display: flex;
@@ -52,7 +53,7 @@
     } 
     if(isset($_GET['category'])){
       $category=$_GET['category'];
-      $query = "select * from bai_viet WHERE tien_de LIKE '%$category%'";
+      $query = "select * from bai_viet WHERE tieu_de LIKE '%$category%'";
   
     } else {
       $query = "select * from bai_viet
@@ -105,4 +106,5 @@
           </div>
       </div>
   </div>
+
   @endsection

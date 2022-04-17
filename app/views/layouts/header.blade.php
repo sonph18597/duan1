@@ -50,10 +50,10 @@
                   <a class="nav-link" href="{{BASE_URL.'gioi-thieu'}}">Giới Thiệu</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="{{BASE_URL.'kien-thuc'}}"> Kiến thức</a>
+                  <a class="nav-link" href="{{BASE_URL.'kien-thuc'}}">Kiến thức</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{BASE_URL.'thu-vien'}}"> Thư Viện </a>
+                  <a class="nav-link" href="{{BASE_URL.'thu-vien'}}">Thư Viện</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{BASE_URL.'lien-he'}}">Liên hệ</a>
@@ -62,9 +62,18 @@
               </ul>
             </div>
             <div class="quote_btn-container ">
-              <a href="{{BASE_URL.'dang-nhap'}}">
-                Log in
-              </a>
+              <?php if (isset($_SESSION ["user"])) : ?>
+                <a href="{{BASE_URL.'chi-tiet-tai-khoan'}}"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
+                <?php
+                      $anh = $_SESSION ["user"]["anh_dai_dien"];
+                     
+                ?>
+                <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" alt="" style=" width: 40px;border-radius: 100px;">
+              <?php else :?>
+                <a href="{{BASE_URL.'dang-nhap'}}"> Log in </a>
+              <?php endif ;?>
+
+
               <a href="{{BASE_URL.'gio-hang'}}">
                 <img src="{{PUBLIC_URL.'images/cart.png'}}" alt="">
               </a>
@@ -79,3 +88,4 @@
     </header>
   </div>
    
+
