@@ -49,7 +49,7 @@ class UsersController
                 'email' => $_POST['email'],
                 'anh_dai_dien' => $_POST['anh_dai_dien']
             ]);
-            echo '<span onload =\"return confirm(\'Bạn muốn tiếp tục tạo mới(y/n) \') \" ></span>';
+           
             header('location: ' . BASE_URL . 'nguoi-dung');
         }
         

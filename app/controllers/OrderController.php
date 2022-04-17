@@ -15,7 +15,7 @@ class OrderController{
     
     public function orderDetail($ma_don_hang){
         $orderDetail = OrderDetail::where('ma_don_hang',$ma_don_hang)->get();
-        var_dump(OrderDetail::all());die;
+        
         $order = Order::find($ma_don_hang);
         return view('order.orderdetail',[
             'orderDetail' => $orderDetail,

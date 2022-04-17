@@ -15,17 +15,17 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="http://localhost/du-an-1/public/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="http://localhost/duan1/public/css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="http://localhost/du-an-1/public/css/style.css" rel="stylesheet" />
+  <link href="http://localhost/duan1/public/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="http://localhost/du-an-1/public/css/responsive.css" rel="stylesheet" />
-  <link rel="stylesheet" href="http://localhost/du-an-1/public/css/login.css">
+  <link href="http://localhost/duan1/public/css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://localhost/duan1/public/css/login.css">
 </head>
-<body>
+<body class="sub_page">
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -62,6 +62,7 @@
               </ul>
             </div>
             <div class="quote_btn-container ">
+<<<<<<< HEAD
 
 
               <?php if (isset($_SESSION ["user"])) : ?>
@@ -78,6 +79,13 @@
 
               <a href="">
                 <img src="http://localhost/du-an-1/public/images/cart.png" alt="">
+=======
+              <a href="{{BASE_URL.'dang-nhap'}}">
+                Log in
+              </a>
+              <a href="{{BASE_URL.'gio-hang'}}">
+                <img src="http://localhost/duan1/public/images/cart.png" alt="">
+>>>>>>> 36cdb87e44e8ada5018bcb1d55d61631ec5a305d
               </a>
               <form class="form-inline" action="{{BASE_URL.'thu-vien'}}">
                 <input type="text" name="category">
@@ -88,6 +96,7 @@
         </nav>
       </div>
     </header>
+<<<<<<< HEAD
     <!-- end header section -->
     <!-- slider section -->
     <section class=" slider_section position-relative">
@@ -135,3 +144,7 @@
     <!-- end slider section -->
   </div>
   
+=======
+  </div>
+   
+>>>>>>> 36cdb87e44e8ada5018bcb1d55d61631ec5a305d

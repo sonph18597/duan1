@@ -15,7 +15,8 @@ use App\Models\Users;
                 
                 if(password_verify($_POST["mat_khau"],$user -> mat_khau) ){
                     $_SESSION ["user"] = [
-                        "ten_tai_khoan" => $user -> ten_tai_khoan,
+                        'ma_tai_khoan'=>$user -> ma_tai_khoan,
+                        "ten_tai_khoan" => $user -> ten_tai_khoan, 
                         "email" => $user -> email,
                         "vai_tro" => $user -> vai_tro,
                         "anh_dai_dien" => $user -> anh_dai_dien,

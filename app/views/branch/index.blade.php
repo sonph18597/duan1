@@ -21,8 +21,7 @@
                   
                 <td>{{$item->ma_chi_nhanh}}</td>
                 <td>{{$item->dia_chi}}</td>
-                <td><img width="100px" height="100px" src="{{PUBLIC_URL . '/img/'.$item->anh}}" alt=""></td>
-                
+                <td><img width="100px" height="100px" src="{{PUBLIC_URL . '/img/'.$item->anh}}" alt=""></td>        
                 <td>
                   <a href="{{BASE_URL . 'chi-nhanh/cap-nhat_id/'.$item->ma_chi_nhanh}}"><button type="button" class="btn btn-primary">Sửa</button></a>
                   <a href="{{BASE_URL . 'chi-nhanh/xoa_id/' . $item->ma_chi_nhanh}} "  onclick="return confirm('Có không giữ xóa thì mất');"><button  type="button" class="btn btn-danger">Xóa</button></a>

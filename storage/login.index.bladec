@@ -23,6 +23,4 @@
  </div>
  </div>
 <?php $this->stopSection(); ?>
- 
- 
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.client'); } ?>
