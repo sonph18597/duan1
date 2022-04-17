@@ -95,15 +95,13 @@
         } catch (PDOException $e){
         echo 'loi ket noi' .$e->getMessage();
         } 
-    $maca = $_GET['ma_ca'];                        
+    $maca = $ma_ca;                        
     $sql = "select * from ca WHERE ma_ca=$maca";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $fish = $stmt -> fetch();
-    function buy($id){
-        
-    }
-                      
+    function buy($id){     
+    }                    
     $sql1 = "select * from binh_luan JOIN tai_khoan ON binh_luan.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE ma_tra_loi=0 AND binh_luan.ma_ca=$maca ";
     $stmt = $conn->prepare($sql1);
     $stmt->execute();
@@ -144,18 +142,17 @@
                     </div>
                     <a class="buy" href="" onclick="buy($maca)">Đặt mua</a>
                 </div>
-
         </div> 
         <div class="comment"> 
                 <h2>Bình luận</h2>
-                <form action="" >
+                <form action="" method="POST" >
                     <img src="{{PUBLIC_URL . '/images/0.jpg'}}" alt="" width="50px" height="50px">
-                    <input name="noi_dung">
+                    <input type="text" name="noi_dung">
+                    <input type="text" hidden value="<?= $ma_ca?>" name="ma_ca">
                     <div>
                         <button type="submit">Gửi</button>
                     </div> 
-                </form>
-                
+                </form>                
                 <div class="show_comment">
                     <?php if ($comments){ ?>
                         @foreach ($comments as $comment)
@@ -169,8 +166,7 @@
                                         <span><?= $comment['ngay_binh_luan'];?></span> 
                                         <span><p><?= $comment['noi_dung']; ?></p></span>                                 
                                     </div>                                            
-                                </div>
-                                
+                                </div>                                
                             </div>
                             <?php
                                 $id_rep_comments=$comment['ma_binh_luan'];           
@@ -192,8 +188,7 @@
                                         </div>                                            
                                     </div>
                                 </div>
-                            @endforeach
-                            
+                            @endforeach                           
                         @endforeach
                     <?php } else {
                         echo "Sản phẩm chưa có bình luận nào";
