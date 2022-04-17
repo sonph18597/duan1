@@ -61,9 +61,16 @@
               </ul>
             </div>
             <div class="quote_btn-container ">
-              <a href="{{BASE_URL.'dang-nhap'}}">
-                Log in
-              </a>
+              <?php if (isset($_SESSION ["user"])) : ?>
+                <a href="{{BASE_URL.'chi-tiet-tai-khoan'}}"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
+                <?php
+                      $anh = $_SESSION ["user"]["anh_dai_dien"];
+                     
+                ?>
+                <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" alt="" style=" width: 40px;border-radius: 100px;">
+              <?php else :?>
+                <a href="{{BASE_URL.'dang-nhap'}}"> Log in </a>
+              <?php endif ;?>
               <a href="{{BASE_URL.'gio-hang'}}">
                 <img src="http://localhost/duan1/public/images/cart.png" alt="">
               </a>

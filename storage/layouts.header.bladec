@@ -40,6 +40,57 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
+<<<<<<< HEAD
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+ <ul class="navbar-nav  ">
+ <li class="nav-item active">
+ <a class="nav-link" href="<?php echo \htmlentities(BASE_URL.'trang-chu', ENT_QUOTES, 'UTF-8', false); ?>">Trang chủ <span class="sr-only">(current)</span></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="<?php echo \htmlentities(BASE_URL.'gioi-thieu', ENT_QUOTES, 'UTF-8', false); ?>">Giới Thiệu</a>
+ </li>
+ <li class="nav-item ">
+ <a class="nav-link" href="<?php echo \htmlentities(BASE_URL.'kien-thuc', ENT_QUOTES, 'UTF-8', false); ?>">Kiến thức</a>
+ </li>
+ <li class="nav-item active">
+ <a class="nav-link" href="<?php echo \htmlentities(BASE_URL.'thu-vien', ENT_QUOTES, 'UTF-8', false); ?>">Thư Viện</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="<?php echo \htmlentities(BASE_URL.'lien-he', ENT_QUOTES, 'UTF-8', false); ?>">Liên hệ</a>
+ </li>
+ 
+ </ul>
+ </div>
+ <div class="quote_btn-container ">
+ <?php if (isset($_SESSION ["user"])) : ?>
+ <a href="<?php echo \htmlentities(BASE_URL.'chi-tiet-tai-khoan', ENT_QUOTES, 'UTF-8', false); ?>"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
+ <?php
+ $anh = $_SESSION ["user"]["anh_dai_dien"];
+ 
+ ?>
+ <img src="<?php echo \htmlentities(PUBLIC_URL, ENT_QUOTES, 'UTF-8', false); ?>dist/img/<?php echo \htmlentities($anh, ENT_QUOTES, 'UTF-8', false); ?>" alt="" style=" width: 40px;border-radius: 100px;">
+ <?php else :?>
+ <a href="<?php echo \htmlentities(BASE_URL.'dang-nhap', ENT_QUOTES, 'UTF-8', false); ?>"> Log in </a>
+ <?php endif ;?>
+
+
+ <a href="<?php echo \htmlentities(BASE_URL.'gio-hang', ENT_QUOTES, 'UTF-8', false); ?>">
+ <img src="<?php echo \htmlentities(PUBLIC_URL.'images/cart.png', ENT_QUOTES, 'UTF-8', false); ?>" alt="">
+ </a>
+ <form class="form-inline" action="<?php echo \htmlentities(BASE_URL.'thu-vien', ENT_QUOTES, 'UTF-8', false); ?>">
+ <input type="text" name="category">
+ <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+ </form>
+ </div>
+ </div>
+ </nav>
+ </div>
+ </header>
+ </div>
+ 
+
+=======
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
@@ -89,3 +140,4 @@
   </div>
    
 
+>>>>>>> db3542e8d5fca4586bf845c26ca8952f2e23f3a3

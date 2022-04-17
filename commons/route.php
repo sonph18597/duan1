@@ -68,21 +68,6 @@ function definedRoute($url){
     $router->get('ca',[FishController::class,'index']);
     $router->get('ca/tao-moi',[FishController::class,'addForm']);
     $router->post('ca/tao-moi',[FishController::class,'saveAdd']);
-<<<<<<< HEAD
-    $router->get('ca/cap-nhat_id{id}',[FishController::class,'editForm']);
-    $router->post('ca/cap-nhat_id{id}',[FishController::class,'saveEdit']);
-    $router->get('ca/xoa_id{id}',[FishController::class,'remove']);
-
-    $router->get('trang-chu',[HomeController::class,'index']);
-    $router->get('lien-he',[ContactController::class,'index']);
-    $router->get('kien-thuc',[KnowledgeController::class,'index']);
-    $router->get('thu-vien',[GalleryController::class,'index']);
-    $router->get('chi-tiet',[DetailController::class,'index']);
-   
-
-
-=======
->>>>>>> 36cdb87e44e8ada5018bcb1d55d61631ec5a305d
     $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
     $router->post('ca/cap-nhat_id/{ma_ca}',[FishController::class,'saveEdit']);
     $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);

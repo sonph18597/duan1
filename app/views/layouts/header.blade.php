@@ -50,10 +50,10 @@
                   <a class="nav-link" href="{{BASE_URL.'gioi-thieu'}}">Giới Thiệu</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="{{BASE_URL.'kien-thuc'}}"> Kiến thức</a>
+                  <a class="nav-link" href="{{BASE_URL.'kien-thuc'}}">Kiến thức</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{BASE_URL.'thu-vien'}}"> Thư Viện </a>
+                  <a class="nav-link" href="{{BASE_URL.'thu-vien'}}">Thư Viện</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{BASE_URL.'lien-he'}}">Liên hệ</a>
