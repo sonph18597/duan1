@@ -46,36 +46,36 @@
             <div>
               <a href="">
                 <div class="insta-box b-1">
-                  <img src="http://localhost/du-an-1/public/images/11.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/11.jpg" alt="">
                 </div>
               </a>
               <a href="">
                 <div class="insta-box b-2">
-                  <img src="http://localhost/du-an-1/public/images/12.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/12.jpg" alt="">
                 </div>
               </a>
             </div>
             <div>
               <a href="">
                 <div class="insta-box b-3">
-                  <img src="http://localhost/du-an-1/public/images/13.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/13.jpg" alt="">
                 </div>
               </a>
               <a href="">
                 <div class="insta-box b-4">
-                  <img src="http://localhost/du-an-1/public/images/14.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/14.jpg" alt="">
                 </div>
               </a>
             </div>
             <div>
               <a href="">
                 <div class="insta-box b-3">
-                  <img src="http://localhost/du-an-1/public/images/15.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/15.jpg" alt="">
                 </div>
               </a>
               <a href="">
                 <div class="insta-box b-4">
-                  <img src="http://localhost/du-an-1/public/images/27.jpg" alt="">
+                  <img src="http://localhost/duan1/public/images/27.jpg" alt="">
                 </div>
               </a>
             </div>
@@ -120,3 +120,4 @@
 <script type="text/javascript" src="js/custom.js"></script>
 
 </body>
+</php>

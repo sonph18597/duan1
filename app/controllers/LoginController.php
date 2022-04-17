@@ -14,6 +14,7 @@ use App\Models\Users;
             if($user){
                 if($user -> mat_khau == $_POST["mat_khau"]){
                     $_SESSION ["user"] = [
+                        'ma_tai_khoan'=>$user -> ma_tai_khoan,
                         "ten_tai_khoan" => $user -> ten_tai_khoan, 
                         "email" => $user -> email,
                         "vai_tro" => $user -> vai_tro

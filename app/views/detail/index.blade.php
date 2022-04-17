@@ -140,30 +140,25 @@
 
     $ma_ca = $_GET['ma_ca'];
                
-    $sql = "select * from ca WHERE ma_ca=$ma_ca";
+    $sql = "select * from ca WHERE ma_ca='$ma_ca'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $fish = $stmt -> fetch();
     $gia_ban=$fish['gia_ban'];
-    
-                      
-    $sql1 = "select * from binh_luan JOIN tai_khoan ON binh_luan.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE ma_tra_loi=0 AND binh_luan.ma_ca=$ma_ca ";
+    $sql1 = "select * from binh_luan JOIN tai_khoan ON binh_luan.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE ma_tra_loi=0 AND binh_luan.ma_ca='$ma_ca' ";
+
     $stmt = $conn->prepare($sql1);
     $stmt->execute();
-    $comments = $stmt -> fetchAll();
-
-
-                        
-    $sql2 = "select * from bai_viet WHERE ma_ca=$ma_ca LIMIT 3";
+    $comments = $stmt -> fetchAll();                       
+    $sql2 = "select * from bai_viet WHERE ma_ca='$ma_ca' LIMIT 3";
     $stmt = $conn->prepare($sql2);
     $stmt->execute();
     $list_bai_viet = $stmt -> fetchAll();
 
-    $sql3 = "select * from danh_gia JOIN tai_khoan ON danh_gia.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE danh_gia.ma_ca=$ma_ca LIMIT 5";
+    $sql3 = "select * from danh_gia JOIN tai_khoan ON danh_gia.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE danh_gia.ma_ca='$ma_ca' LIMIT 5";
     $stmt = $conn->prepare($sql3);
     $stmt->execute();
     $list_danh_gia = $stmt -> fetchAll(); 
-    
 ?>
 <script>
     function repCmt(id){
@@ -189,7 +184,6 @@
                         <img src="{{PUBLIC_URL . 'images/'.$fish['anh']}}" width="450px" />
                     <?php } ?>
                 </div>
-                
                 <div class="info_detail">    
                     <span><h3>Thông tin chi tiết</h3></span>              
                     <div class="ten">
@@ -205,7 +199,6 @@
                             Trạng Thái:
                             <?= $fish['trang_thai'] ?>
                         </div>
-                        
                         <div>
                             Nguồn Gốc: <?= $fish['xuat_xu'] ?>
                         </div>
@@ -217,7 +210,6 @@
                         }
                     ?>
                 </div>
-
         </div> 
         <div class="comment"> 
                 <h2>Bình luận</h2>
@@ -227,8 +219,7 @@
                     <div>
                         <button type="submit">Gửi</button>
                     </div> 
-                </form>
-                
+                </form>                
                 <div class="show_comment">
                     <?php if ($comments){ ?>
                         @foreach ($comments as $comment)
@@ -276,8 +267,7 @@
                                         </div>                                            
                                     </div>
                                 </div>
-                            @endforeach
-                            
+                            @endforeach                           
                         @endforeach
                     <?php } else {
                         echo "Sản phẩm chưa có bình luận nào";
