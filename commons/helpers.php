@@ -1,7 +1,7 @@
 <?php
 const BASE_URL = "http://localhost/du-an-1/";
 
-const BASE_URL = "http://localhost/du-an-1/";
+
 const PUBLIC_URL = BASE_URL . 'public/';
 const ADMIN_ROLE = 1;
 const STUDENT_ROLE = 2;

@@ -84,10 +84,12 @@ use App\Models\Users;
                     header("location:" . BASE_URL . "dang-ki?msg=tên email đã tồn tại&idInput=5");
                     die;
                 }
-            
+
+            $user -> mat_khau = password_hash($_POST['mat_khau'], PASSWORD_DEFAULT);
             $user -> save();
             header('location:'. BASE_URL . 'dang-nhap');
             die;
+           
         }
         else{
             header('location:' . BASE_URL . 'dang-ki');

@@ -17,6 +17,9 @@ use App\Controllers\LoginController;
 use App\Controllers\RegistrationController;
 use App\Controllers\ShopController;
 use Phroute\Phroute\RouteCollector;
+use App\Controllers\DetailAccController;
+use App\Controllers\UpdateAccController;
+use App\Controllers\UpdatePassController;
 
 function definedRoute($url){
     $router = new RouteCollector();
@@ -70,10 +73,7 @@ function definedRoute($url){
     $router->get('kien-thuc',[KnowledgeController::class,'index']);
     $router->get('thu-vien',[GalleryController::class,'index']);
     $router->get('chi-tiet',[DetailController::class,'index']);
-    $router->get('gioi-thieu',[IntroController::class,'index']);
-    $router->get('dang-nhap',[LoginController::class,'index']);
-    $router->get('dang-ki',[RegisController::class,'index']);
-    $router->get('gio-hang',[ShopController::class,'index']);
+   
 
 
     $router->get('ca/cap-nhat_id/{ma_ca}',[FishController::class,'editForm']);
@@ -109,8 +109,15 @@ function definedRoute($url){
     $router->get('gio-hang',[ShopController::class,'index']);
     $router->get('dang-ki',[RegistrationController::class,'index']);
     $router->post('dang-ki',[RegistrationController::class,'add']);
-    $router->post('chi-tiet-tai-khoan',[DetailAccController::class,'index']);
-
+    $router->get('dang-xuat',[LoginController::class,'logout']);
+    $router->get('chi-tiet-tai-khoan',[DetailAccController::class,'index']);
+    $router->post('chi-tiet-tai-khoan',[DetailAccController::class,'up_img']);
+    $router->get('cap-nhat-tai-khoan',[UpdateAccController::class,'index']);
+    $router->post('cap-nhat-tai-khoan',[UpdateAccController::class,'update']);
+    $router->post('cap-nhat-mat-khau',[UpdatePassController::class,'update_pass']);
+    $router->get('cap-nhat-mat-khau',[UpdatePassController::class,'index']);
+    
+    
 
     $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($url, PHP_URL_PATH));
