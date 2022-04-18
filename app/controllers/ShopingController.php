@@ -1,8 +1,8 @@
 <?php
 namespace App\Controllers;
-class RegisController{
+class ShopingController{
     public function index(){
-        return view('regis.index');
+        return view('shoping.index');
     }
 }
 ?>

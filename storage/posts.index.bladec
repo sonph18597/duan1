@@ -1,0 +1,34 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('client_content'); ?>
+<?php
+ $host='localhost';
+ $dbname='du_an_1';
+ $username='root';
+ $password='';
+ try {
+ $conn = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8",$username,$password);
+ } catch (PDOException $e){
+ echo 'loi ket noi' .$e->getMessage();
+ } 
+ $sql ="SELECT * FROM bai_viet";
+ $stmt = $conn -> prepare($sql);
+ $stmt -> execute();
+ $posts = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+ <h2>
+ Trang chủ/ Bài viết liên quan
+ </h2>
+ <div class="post">
+ <div class="content_post">
+ <div class="header_posts">
+ <?php $__currentLoopData = $posts; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $post): $loop = $this->incrementLoopIndices();  ?>
+ TIÊU ĐỀ 
+ <?= $post['tieu_de']?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.client'); } ?>
