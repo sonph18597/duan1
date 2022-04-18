@@ -5,11 +5,13 @@ use App\Controllers\CommentController;
 use App\Controllers\ContentController;
 use App\Controllers\DashboardController;
 use App\Controllers\FishController;
+use App\Controllers\ReviewFishController;
 use App\Controllers\OrderController;
 use App\Controllers\TypeController;
 use App\Controllers\UsersController;
 use App\Controllers\ShopingController;
 use App\Controllers\ReviewController;
+use App\Controllers\DetailPostController;
 use App\Controllers\StatisticalController;
 use App\Controllers\HomeController;
 use App\Controllers\KnowledgeController;
@@ -74,11 +76,11 @@ function definedRoute($url){
     $router->get('ca/xoa_id/{ma_ca}',[FishController::class,'remove']);
     $router->get('ca/chi-tiet_id/{ma_ca}',[FishController::class,'detail']);
     
-
+    $router->get('/',[HomeController::class,'index']);
     $router->get('trang-chu',[HomeController::class,'index']);
     $router->get('lien-he',[ContactController::class,'index']);
     $router->get('kien-thuc',[KnowledgeController::class,'index']);
-    $router->get('kien-thuc{ma_bai_viet}',[KnowledgeController::class,'content']);
+    $router->get('kien-thuc/chi-tiet-bai-viet',[DetailPostController::class,'index']);
     $router->get('thu-vien',[GalleryController::class,'index']);
     $router->get('chi-tiet',[DetailController::class,'index']);
     $router->get('gioi-thieu',[IntroController::class,'index']);
@@ -101,6 +103,8 @@ function definedRoute($url){
     $router->get('binh-luan/xoa-phan-hoi_id/{ma_binh_luan}',[CommentController::class,'removeFeedBack']);
     $router->get('don-hang',[OrderController::class,'index']);
     $router->get('don-hang-chi-tiet_id/{ma_don_hang}',[OrderController::class,'orderDetail']);
+    $router->get('danh-gia-san-pham',[ReviewFishController::class,'index']);
+
     
 
     $router->get('bai-viet',[ContentController::class,'index']);

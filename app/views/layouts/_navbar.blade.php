@@ -21,12 +21,7 @@
          
       
             <li >
-              <a  href=""  role="button"  >
-                  <?= $_SESSION['user']['ten_tai_khoan']?>
-              </a>
-            </li>
-            <li >
-              <a  href=""  role="button"  >
+              <a  href="{{ BASE_URL. 'dang-xuat'}}"  role="button"  >
                   Đăng xuất
               </a>
             </li>

@@ -2,33 +2,41 @@
 @section('client_content')
 
 <style>
+  h2{
+    margin:50px auto; 
+    text-align: center;
+  }
   .post_list{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  .inf_post{
+    margin: 20px;
+    width: 60%;
+  }
+  .thoi_gian{
+    display: flex;
+    justify-content: flex-end;
+  }
   .post{
+    display: flex;
     padding: 10px;
   }
   .post img {
-    width:300px;
+    width:200px;
   }
   .post_image{
-    height: 300px;
     align-items: center;
     display: flex;
     padding-bottom: 10px;
-  }
-  .post .ten{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   .paging{
     text-align: center;
     margin: 20px 0;
   }
-    </style>
+</style>
 <?php
     $host='localhost';
     $dbname='du_an_1';
@@ -51,60 +59,46 @@
     } else {
       $skip=0;
     } 
-    if(isset($_GET['category'])){
-      $category=$_GET['category'];
-      $query = "select * from bai_viet WHERE tieu_de LIKE '%$category%'";
-  
-    } else {
-      $query = "select * from bai_viet
-                ORDER BY   ma_bai_viet
-                LIMIT      $postsNumber
-                OFFSET     $skip     
-                
-      ";
-    }
-            $stmt = $conn -> prepare($query);
-            $stmt -> execute();
-            $posts = $stmt -> fetchAll();
-?>
-  <div class="container">
-      <div class="table-posts" border=1 >
-          <div class="h2">
-              <h3>Bài Viết</h3>
-          </div>
-          <div class="fish_list">
-              <?php
-              foreach ($posts as $post) {
-              ?>
-                    <div class="post">                         
-                            <div class="fish_image">
-                                <img src="{{PUBLIC_URL . '/images/'}}<?= $post['anh'] ?>" width="150px" />
-                            </div>
-                            <div class="ten">
-                                <?= $post['tieu_de'] ?>
-                                <div class="ten" style="color: red;">
-                                <?=$post['ngay_dang']?>
-                                </div>
-                            </div>                          
-                    </div>
-                  </a>
-              <?php } ?>
-          </div>
-          <div class="paging" >
-            <?php if(isset($_GET['category'])){
-              $search_href="&category=".$_GET['category'];
-            } else {
-              $search_href="";
-            } ?>
-            <a href={{BASE_URL.'kien-thuc'.$search_href}}>1</a>
-              <?php             
-              for ($i=2; $i <=$pagenumber ; $i++) { ?>             
-                <a class="page" href="{{BASE_URL.'kien-thuc'}}?page=<?php echo $i."".$search_href ?>"><?php echo $i; ?></a>
-              <?php
-              }              
-              ?>
-          </div>
-      </div>
-  </div>
 
-  @endsection
+    $query = "SELECT * FROM bai_viet
+              ORDER BY   ma_bai_viet
+              LIMIT      $postsNumber
+              OFFSET     $skip     
+                
+    ";
+    $stmt = $conn -> prepare($query);
+    $stmt -> execute();
+    $posts = $stmt -> fetchAll();
+?>
+<div class="container">
+  <div class="table-posts">
+    <h2>Bài viết</h2>
+    <div class="post_list">
+      <?php foreach ($posts as $post) {?>
+        <?php $id=$post['ma_bai_viet']; ?>
+        <div class="post">                         
+          <div class="post_image">
+            <a href="{{BASE_URL.'kien-thuc/chi-tiet-bai-viet?id='.$id}}"><img src="{{PUBLIC_URL . '/images/'}}<?= $post['anh'] ?>" width="150px" /></a>
+          </div>
+          <div class="inf_post">
+            <div class="ten">
+              <a href="{{BASE_URL.'kien-thuc/chi-tiet-bai-viet?id='.$id}}"><?= $post['tieu_de'] ?></a>
+            </div>
+            <div class="thoi_gian" style="color: red;">
+              <?=$post['ngay_dang']?>
+            </div>
+          </div>
+        </div>
+        <hr>                                 
+      <?php } ?>
+    </div>
+    <div class="paging" >
+      <a href={{BASE_URL.'kien-thuc'}}>1</a>
+      <?php for ($i=2; $i <=$pagenumber ; $i++) { ?>             
+        <a class="page" href="{{BASE_URL.'kien-thuc'}}?page=<?php echo $i ?>"><?php echo $i ?></a>
+      <?php } ?>
+    </div>
+  </div>
+</div>
+
+@endsection

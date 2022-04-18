@@ -25,8 +25,8 @@
         $tong_tien=$tong_tien+$product['so_luong']*$product['gia_ban'];
     }
 
-    $sql = "INSERT INTO don_hang (ngay_len_don,tong_tien,trang_thai,dia_chi,so_dien_thoai,ma_tai_khoan) 
-                    VALUES ('$ngay_len_don',$tong_tien,'$trang_thai','$dia_chi','$sdt','$ma_tai_khoan')";
+    $sql = "INSERT INTO don_hang (ngay_len_don,tong_tien,trang_thai,dia_chi,so_dien_thoai,ma_tai_khoan,ma_chi_nhanh) 
+                    VALUES ('$ngay_len_don',$tong_tien,'$trang_thai','$dia_chi','$sdt','$ma_tai_khoan',1)";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     

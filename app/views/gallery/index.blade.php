@@ -1,6 +1,10 @@
 @extends('layouts.client')
 @section('client_content')
 <style>
+  h2{
+    margin:50px auto; 
+    text-align: center;
+  }
   .fish_list{
     display: flex;
     flex-wrap: wrap;
@@ -24,10 +28,20 @@
     align-items: center;
   }
   .paging{
-    text-align: center;
+    display: flex;
     margin: 20px 0;
+    justify-content: center;
   }
-    </style>
+  .page{
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 5px;
+    width: 30px;
+    margin: 0 5px;
+    text-align: center;
+  }
+</style>
 <?php
   $host='localhost';
     $dbname='du_an_1';
@@ -74,10 +88,8 @@
           $fishs = $stmt -> fetchAll();
 ?>
   <div class="container">
-      <div class="table-ca" border=1 >
-          <div class="h2">
-              <h3>Sản phẩm</h3>
-          </div>
+      <div class="table-ca" >
+          <h2>Sản phẩm</h2>
           <div class="fish_list">
               <?php
               foreach ($fishs as $fish) {
@@ -103,7 +115,7 @@
             } else {
               $search_href="";
             } ?>
-            <a href={{BASE_URL.'thu-vien'.$search_href}}>1</a>
+            <a class="page" href={{BASE_URL.'thu-vien'.$search_href}}>1</a>
               <?php             
               for ($i=2; $i <=$pagenumber ; $i++) { ?>             
                 <a class="page" href="{{BASE_URL.'thu-vien'}}?page=<?php echo $i."".$search_href ?>"><?php echo $i; ?></a>

@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{BASE_URL.'trang-chu'}}" class="brand-link">
       <img src="{{PUBLIC_URL}}/images/085afd5d0208f552b20a7cf9dd822235228e1771279e15739dfcfc59986145c1.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Cá koi</span>
     </a>
