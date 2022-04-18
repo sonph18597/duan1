@@ -15,7 +15,7 @@
                     <div> <a href="{{ BASE_URL. 'ca'}}">TRANG QUẢN TRỊ </a> </div> <br>
             <?php endif;?>
 
-            <?php if ($_SESSION ["user"]["vai_tro"] == "Admin" || $_SESSION ["user"]["vai_tro"] == "Admin chi nhánh" || $_SESSION ["user"]["vai_tro"] == "cộng tác viên" ):?>
+            <?php if ($_SESSION ["user"]["vai_tro"] != ""):?>
                 <div><a href="{{ BASE_URL. 'chi-tiet-don-hang'}}">ĐƠN HÀNG CỦA TÔI</a></div> <br>
             <?php endif;?>
                 <div><a href="{{ BASE_URL. 'cap-nhat-mat-khau'}}">ĐỔI MẬT KHẨU</a></div> <br>
@@ -111,5 +111,10 @@ input[type=file]{
 .master{
     border-bottom:2px solid rgb(174, 172, 172); 
 }
+.bodyAcc img{
+    width: 215px;
+    height: 215px;
+}
+
 </style>
 @endsection

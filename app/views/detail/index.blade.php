@@ -25,7 +25,7 @@
         width: 100%;
         display: flex;
         justify-content: space-around; 
-
+        flex-wrap: wrap;
     }
     .info_detail{
         display:flex;
@@ -49,7 +49,8 @@
     .comment form button{
         margin-left: 10px;
         border-radius: 10px;
-        width: 100px;
+        max-width: 100px;
+        min-width: 50px;
         height: 50px;
     }
     .show_comment{
@@ -124,6 +125,10 @@
     .so_luong span{
         padding: 0 5px;
         cursor: pointer;
+    }
+    .login{
+        text-align: center;
+        margin-bottom:20px; 
     }
 </style>
 <?php
@@ -204,30 +209,36 @@
                         </div>
                     </div>
                     <a class="buy" href="{{BASE_URL.'app/views/detail/save-shoping.php?ma_ca='.$ma_ca.'&gia_ban='.$gia_ban}}">Đặt mua</a>
-                    <?php 
-                        function buy($id){
-                            echo $id;
-                        }
-                    ?>
                 </div>
         </div> 
         <div class="comment"> 
                 <h2>Bình luận</h2>
-                <form action="{{BASE_URL.'app/views/detail/save-comment.php?ma_ca='.$ma_ca}}" method="POST">
-                    <img src="{{PUBLIC_URL . 'images/0.jpg'}}" alt="" width="50px" height="50px">
-                    <input name="noi_dung">
-                    <div>
-                        <button type="submit">Gửi</button>
-                    </div> 
-                </form>                
+                <?php if(isset($_SESSION['user'])){ ?>
+                    <form action="{{BASE_URL.'app/views/detail/save-comment.php?ma_ca='.$ma_ca}}" method="POST">
+                        <img src="{{PUBLIC_URL}}dist/img/{{$_SESSION['user']['anh_dai_dien']}}" alt="" width="50px" height="50px">
+                        <input name="noi_dung">
+                        <div>
+                            <button type="submit">Gửi</button>
+                        </div> 
+                    </form>     
+                <?php } else { ?>           
+                    <div class="login">
+                        <h5>Vui lòng đăng nhập để bình luận</h5>
+                        <a href="{{BASE_URL.'dang-nhap'}}"> Đăng nhập </a>
+                    </div>
+                <?php } ?>
                 <div class="show_comment">
                     <?php if ($comments){ ?>
                         @foreach ($comments as $comment)
-                            <?php $ma_binh_luan=$comment['ma_binh_luan']; ?>
+
+                            <?php 
+                                $ma_binh_luan=$comment['ma_binh_luan'];
+                                $anh=$comment['anh_dai_dien'];
+                            ?>
                             
                             <div class="cmt">
                                 <div class="user_comment">
-                                    <img src="{{PUBLIC_URL . 'images/0.jpg'}}" width="50px" height="50px" alt="">
+                                    <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" width="50px" height="50px" alt="">
                                 </div>
                                 <div class="text_comment">
                                     <div>                           
@@ -255,9 +266,12 @@
                                 $rep_comments = $stmt -> fetchAll();
                             ?>
                             @foreach ($rep_comments as $rep_comment)
+                                <?php
+                                     $anh=$rep_comment['anh_dai_dien'];
+                                ?>
                                 <div class="rep_comment">
                                     <div class="user_comment">
-                                        <img src="{{PUBLIC_URL . 'images/0.jpg'}}" width="50px" height="50px" alt="">
+                                        <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" width="50px" height="50px" alt="">
                                     </div>
                                     <div class="text_comment">
                                         <div>                           
@@ -279,13 +293,16 @@
             <div class="show_comment">
                 <?php if ($list_danh_gia){ ?>
                     @foreach ($list_danh_gia as $danh_gia)
+                        <?php
+                             $anh=$danh_gia['anh_dai_dien'];
+                        ?>
                         <div class="cmt">
                             <div class="user_comment">
-                                <img src="{{PUBLIC_URL . 'images/0.jpg'}}" width="50px" height="50px" alt="">
+                                <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" width="50px" height="50px" alt="">
                             </div>
                             <div class="text_comment">
                                 <div>                           
-                                    <span><?= $danh_gia['ten_tai_khoan']; ?></span>
+                                    <span><?= $danh_gia['ho_ten']; ?></span>
                                     <span><?= $danh_gia['ngay_danh_gia'];?></span> 
                                     <span><p><?= $danh_gia['noi_dung']; ?></p></span>                                 
                                 </div>                                            

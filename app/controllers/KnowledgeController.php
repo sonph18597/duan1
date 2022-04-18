@@ -12,13 +12,5 @@ class KnowledgeController{
         ]
         );
     }
-    public function content($ma_bai_viet){
-        $content = Content::find($ma_bai_viet);
-          
-        return view('knowledge.content',[
-            'content' => $content,
-        ]
-        );
-    }
 }
 ?>

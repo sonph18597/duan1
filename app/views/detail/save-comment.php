@@ -23,6 +23,7 @@
             $noi_dung=$_POST['noi_dung'];
         } else {
             header('location:'.BASE_URL.'chi-tiet?ma_ca='.$ma_ca);
+            die;
         }
         
         date_default_timezone_set('Asia/Ho_Chi_Minh');
