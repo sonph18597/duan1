@@ -15,7 +15,11 @@
  <label for="exampleInputEmail1" class="form-label">Email</label>
  <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
  </div>
-
+ <?php /* Mật khẩu  */ ?>
+ <div class="mb-3">
+ <label for="exampleInputEmail1" class="form-label">Mật Khẩu</label>
+ <input name="mat_khau" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+ </div>
  <?php /* họ tên  */ ?>
  <div class="mb-3">
  <label for="exampleInputEmail1" class="form-label">Tên người dùng</label>

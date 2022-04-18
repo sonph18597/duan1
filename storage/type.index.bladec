@@ -8,7 +8,7 @@
  <tr>
  <th scope="col">Mã loại</th>
  <th scope="col">Tên loại</th>
- <th scope="col">Tên cha nó</th>
+ <th scope="col">Tên loại cha</th>
  <th>
  </th>
  

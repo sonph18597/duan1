@@ -11,14 +11,14 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Tên cha nó</label>
+      <label for="exampleInputEmail1" class="form-label">Tên Loại cha</label>
       <br>
       <select class="form-select" name='ma_loai_cha' aria-label="Default select example">
-        <option selected>Chọn cha cho nó</option>
-        <option value="0">Mồ côi</option>
-        @foreach ($type as $item)
-            <option value="{{$item->ma_loai}}">{{$item->ten_loai}}</option>
-        @endforeach
+            <option selected>Chọn loại cha</option>
+            <option value="0">Mồ côi</option>
+            @foreach ($type as $item)
+                <option value="{{$item->ma_loai}}">{{$item->ten_loai}}</option>
+            @endforeach
       </select>
     </div>
 

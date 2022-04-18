@@ -12,7 +12,7 @@ use App\Models\Type;
 
 class FishController{
     public function index(){
-        $fish = Fish::all();
+        $fish = Fish::orderByRaw('ten_ca')->get();
         return view('fish.index',[
             'fish'=>$fish
         ]
@@ -20,8 +20,8 @@ class FishController{
     }
 
     public function addForm(){
-        $type = Type::all();
-        $branch = Branch::all();
+        $type = Type::orderByRaw('ten_loai ')->get();
+        $branch = Branch::orderByRaw('ten_chi_nhanh')->get();
         return view('fish.addform',[
             'type'=>$type,
             'branch'=>$branch
@@ -29,13 +29,13 @@ class FishController{
     }
 
     public function saveAdd(){
-        
         $fish = Fish::where('ten_ca',$_POST['ten_ca'])->first();
         if($fish){
-            header('location: ' . BASE_URL . 'ca/tao-moi?msg= Tên cá đã tồn tại');
+            header('location: ' . BASE_URL . 'ca/tao-moi?msg=Tên cá đã tồn tại');
             die;
         }
-        Fish::create([
+
+        $fishes = Fish::create([
             'ma_loai'=>$_POST['ma_loai'],
             'ten_ca'=>$_POST['ten_ca'],         
             'gia_goc'=>$_POST['gia_goc'],
@@ -44,7 +44,12 @@ class FishController{
             'xuat_xu'=>$_POST['xuat_xu'],  
             'trang_thai'=>$_POST['trang_thai']      
         ]);
-       
+     
+        ManageFish::create([
+            'ma_ca' =>$fishes->ma_ca,
+            'ma_chi_nhanh' =>$_POST['ma_chi_nhanh'],
+            'so_luong'=>$_POST['so_luong']
+        ]);
         header('location: ' . BASE_URL . 'ca');
         die;
 
@@ -53,8 +58,7 @@ class FishController{
     public function editForm($ma_ca){
         
         $fish = Fish::find($ma_ca);
-        $type = Type::all();
-
+        $type = Type::orderByRaw('ten_loai ')->get();
         return view('fish.editform',[
             'fish'=>$fish,
             'type'=>$type
@@ -62,11 +66,11 @@ class FishController{
     }
 
     public function saveEdit($ma_ca){
-        var_dump($_POST['anh[]']);die;
+        $fishes = Fish::where('ten_ca',$_POST['ten_ca'])->first();
         $fish = Fish::find($ma_ca);
-        $model = Fish::where('ten_ca',$_POST['ten_ca'])->first();
-        if(!empty($model) && $ma_ca != $model->ma_ca){
-            header('location: ' . BASE_URL . 'ca/cap-nhat_id/'.$ma_ca.'?msg= Tên cá đã tồn tại');
+
+        if(isset($fishes) && $fishes->ma_ca != $ma_ca){
+            header('location: ' . BASE_URL . 'ca/cap-nhat_id/'.$ma_ca.'?msg=Tên cá đã tồn tại');
             die;
         }
         $fish->ten_ca =$_POST['ten_ca'];
@@ -82,7 +86,8 @@ class FishController{
             $fish->ma_loai =$_POST['ma_loai'];
         }
         $fish->xuat_xu =$_POST['xuat_xu'];
-     
+
+        
         $fish->save();
         header('location: ' . BASE_URL . 'ca');
         die;

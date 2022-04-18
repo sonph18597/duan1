@@ -36,7 +36,7 @@ function definedRoute($url){
     });    
     
 
-    $router->get('dashboard', [DashboardController::class, 'index']);
+    $router->get('admin', [DashboardController::class, 'index']);
 
     $router->get('loai-ca',[TypeController::class,'index']);
     $router->get('loai-ca/tao-moi',[TypeController::class,'addForm']);
@@ -60,6 +60,7 @@ function definedRoute($url){
     $router->post('chi-nhanh/cap-nhat_id/{ma_chi_nhanh}',[BranchController::class,'saveEdit']);
     $router->get('chi-nhanh/xoa_id/{ma_chi_nhanh}',[BranchController::class,'remove']);
     $router->get('chi-nhanh/chi-tiet_id/{ma_chi_nhanh}',[BranchController::class,'detail']);
+    $router->get('chi-nhanh/xoa-ca_id/{ma_ca_theo_chi_nhanh}',[BranchController::class,'removeFish']);
 
     $router->get('ca',[FishController::class,'index']);
     $router->get('ca/tao-moi',[FishController::class,'addForm']);

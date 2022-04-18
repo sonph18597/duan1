@@ -16,15 +16,29 @@ class Branch extends Model{
     }
 
     public function demSodon($ma_chi_nhanh){
-        $count = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->count();
+        $order = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
+        $count = 0;
+        foreach($order as $item){
+            // var_dump(date('m/Y') );
+            // echo '<pre>';
+            // var_dump(date('m/Y', strtotime($item->ngay_len_don)))
+            
+            if(date('m/Y') == date('m/Y', strtotime($item->ngay_len_don))){
+               
+                $count = $count + 1;
+            }
+        }
+        
         return $count;
     }
 
     public function demTien($ma_chi_nhanh){
-        $count = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
+        $order = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
         $tong = 0;
-        foreach($count as $c){
-            $tong += $c->tong_tien;
+        foreach($order as $item){
+            if(date('m/Y') == date('m/Y', strtotime($item->ngay_len_don))){
+                $tong += $item -> tong_tien;
+            }
         }
         return $tong;
     }

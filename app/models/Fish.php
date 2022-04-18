@@ -3,7 +3,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Fish extends Model{
     protected $table = 'ca';
-    protected $fillable = [''];
+    protected $fillable = ['ma_ca','xuat_xu','ten_ca','gia_goc','gia_ban','ma_loai','anh','trang_thai'];
     public $timestamps = false;
     protected $primaryKey = 'ma_ca';
     public function demBL(){
