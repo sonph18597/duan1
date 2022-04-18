@@ -5,11 +5,7 @@
 @if (isset($_GET['msg']))
 <p class="text-danger"><?= $_GET['msg'] ?></p>
 @endif
-{{-- Mã loại  --}}
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">ID</label>
-        <input readonly placeholder="{{$fish->ma_ca}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-      </div>
+       
 {{-- tên cá  --}}
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Tên cá</label>

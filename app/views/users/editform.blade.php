@@ -5,11 +5,6 @@
     @if (isset($_GET['msg']))
         <p class="text-danger"><?= $_GET['msg'] ?></p>
     @endif
-    {{-- mã tài khoản --}}
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">ID</label>
-        <input  placeholder="{{$user->ma_tai_khoan}}" readonly type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-      </div>
       {{-- tên tài khoản  --}}
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Tên tài khoản</label>

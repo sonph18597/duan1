@@ -11,13 +11,13 @@ use App\Models\Users;
 
        public function login (){
             $user = Users :: where ("ten_tai_khoan",$_POST["ten_tai_khoan"]) -> first(); 
-            if($user){
-                
+            if($user){              
                 if(password_verify($_POST["mat_khau"],$user -> mat_khau) ){
                     $_SESSION ["user"] = [
                         'ma_tai_khoan'=>$user -> ma_tai_khoan,
                         "ten_tai_khoan" => $user -> ten_tai_khoan, 
                         "email" => $user -> email,
+
                         "vai_tro" => $user -> vai_tro,
                         "anh_dai_dien" => $user -> anh_dai_dien,
                         "ho_ten" => $user -> ho_ten,

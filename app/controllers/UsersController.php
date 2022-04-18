@@ -16,7 +16,7 @@ class UsersController
 {
     public function index()
     {
-        $user = Users::all();
+        $user = Users::orderByRaw('ten_tai_khoan')->get();
         return view('users.index', [
             'user' => $user
         ]);
@@ -28,13 +28,12 @@ class UsersController
     }
 
     // Function add
-    // Function add
+
     public function saveAdd( )
     {   
-       
         $user = Users::where('ten_tai_khoan',$_POST['ten_tai_khoan'])->first();
-        $email = Users::where('email',$_POST['email']);
-        if($user){
+        $email = Users::where('email',$_POST['email'])->first();
+        if(isset($user)){
             header('location: ' . BASE_URL . 'nguoi-dung/tao-moi?msg=Tên tài khoản đã tồn tại');
             die;
         }else if($email){
@@ -47,10 +46,12 @@ class UsersController
                 'ho_ten' => $_POST['ho_ten'],
                 'vai_tro' => $_POST['vai_tro'],
                 'email' => $_POST['email'],
-                'anh_dai_dien' => $_POST['anh_dai_dien']
+                'anh_dai_dien' => $_POST['anh_dai_dien'],
+                'mat_khau' => password_hash($_POST['mat_khau'], PASSWORD_DEFAULT)
             ]);
            
             header('location: ' . BASE_URL . 'nguoi-dung');
+            die;
         }
         
     }
@@ -76,6 +77,7 @@ class UsersController
         $user->ho_ten = $_POST['ho_ten'];
         $user->vai_tro = $_POST['vai_tro'];
         $user->email = $_POST['email'];
+ 
         if($_POST['anh_dai_dien']){
             $user->anh_dai_dien = $_POST['anh_dai_dien'];
         }
@@ -97,12 +99,6 @@ class UsersController
         header('location: ' . BASE_URL . 'nguoi-dung');
         die;
     }
-
-    
-
-   
-
- 
 
 
 }

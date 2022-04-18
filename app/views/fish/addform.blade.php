@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('main-content')
 <form method="POST" action="">
+  {{--MSG--}}
   @if (isset($_GET['msg']))
        <p class="text-danger"><?= $_GET['msg'] ?></p>
     @endif
@@ -57,10 +58,10 @@
       <label for="exampleInputEmail1" class="form-label">Chi nhánh</label>
       <br>
       <select class="form-select" name='ma_chi_nhanh' aria-label="Default select example">
-        <option value="" hidden></option>
-        @foreach ($branch as $item)
-            <option value="{{$item->ma_chi_nhanh}}">{{$item->ten_chi_nhanh}}</option>
-        @endforeach
+          <option value="" hidden></option>
+          @foreach ($branch as $item)
+              <option value="{{$item->ma_chi_nhanh}}">{{$item->ten_chi_nhanh}}</option>
+          @endforeach
       </select>
   </div>
 {{-- Số lượng  --}}

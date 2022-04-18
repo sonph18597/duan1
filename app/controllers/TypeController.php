@@ -14,7 +14,8 @@ class TypeController
 {
     public function index()
     {
-        $type =  Type::all();
+        
+        $type = Type::orderByRaw('ten_loai ')->get();
         return view('type.index', [
             'type' => $type
         ]);
@@ -22,7 +23,7 @@ class TypeController
 
     public function addForm()
     {   
-        $type = Type::all();
+        $type = Type::orderByRaw('ten_loai ')->get();
         return view('type.addform',[
             'type' =>$type,
         ]);
@@ -31,6 +32,7 @@ class TypeController
     public function saveAdd()
     {
         $type = Type::where('ten_loai', $_POST['ten_loai'])->first();
+        
         if ($type) {
             header('location: ' . BASE_URL . 'loai-ca/tao-moi?msg=Loại cá này đã tồn tại');
             die;
@@ -49,7 +51,7 @@ class TypeController
     {
         $type = Type::find($ma_loai);
 
-        $show = Type::all();
+        $show = Type::orderByRaw('ten_loai ')->get();
 
         if (!$type) {
             header('location: ' . BASE_URL . 'loai-ca');

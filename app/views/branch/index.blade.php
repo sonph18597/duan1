@@ -7,7 +7,7 @@
     <thead>
       <tr>
         <th scope="col">Mã chi nhánh</th>
-           
+        <th scope="col">Tên chi Nhánh</th>
         <th scope="col">Địa chỉ</th>
         <th scope="col">Hình</th>
         <th>
@@ -20,6 +20,7 @@
             <tr>
                   
                 <td>{{$item->ma_chi_nhanh}}</td>
+                <td>{{$item->ten_chi_nhanh}}</td>
                 <td>{{$item->dia_chi}}</td>
                 <td><img width="100px" height="100px" src="{{PUBLIC_URL . '/img/'.$item->anh}}" alt=""></td>        
                 <td>
