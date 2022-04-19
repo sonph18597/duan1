@@ -12,7 +12,7 @@
             <br>
         </div>
             <?php if ($_SESSION ["user"]["vai_tro"] == "Admin" || $_SESSION ["user"]["vai_tro"] == "Admin chi nhánh") :?>
-                    <div> <a href="{{ BASE_URL. 'ca'}}">TRANG QUẢN TRỊ </a> </div> <br>
+                    <div> <a href="{{ BASE_URL. 'admin'}}">TRANG QUẢN TRỊ </a> </div> <br>
             <?php endif;?>
 
             <?php if ($_SESSION ["user"]["vai_tro"] != ""):?>

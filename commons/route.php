@@ -103,6 +103,8 @@ function definedRoute($url){
     $router->get('binh-luan/xoa-phan-hoi_id/{ma_binh_luan}',[CommentController::class,'removeFeedBack']);
     $router->get('don-hang',[OrderController::class,'index']);
     $router->get('don-hang-chi-tiet_id/{ma_don_hang}',[OrderController::class,'orderDetail']);
+    $router->get('don-hang-trang-thai/{ma_don_hang}',[OrderController::class,'status']);
+    $router->post('don-hang-trang-thai/{ma_don_hang}',[OrderController::class,'saveStatus']);
     $router->get('danh-gia-san-pham',[ReviewFishController::class,'index']);
 
     

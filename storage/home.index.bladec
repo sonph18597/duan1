@@ -36,7 +36,7 @@
  CaKoi
  </span>
  </a>
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+ <button onclick="nav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
  <span class="navbar-toggler-icon"></span>
  </button>
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -259,7 +259,7 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
  <div class="client_box">
  <div class="detail_box">
  <div class="img_box">
- <img src="<?php echo \htmlentities(PUBLIC_URL, ENT_QUOTES, 'UTF-8', false); ?>images/long.jpg">
+ <img src="<?php echo \htmlentities(PUBLIC_URL, ENT_QUOTES, 'UTF-8', false); ?>images/long.jpg" style="border-radius:50%;width:115px;height:115px">
  </div>
  <h5>
  Triều Trẻ Trâu
@@ -272,7 +272,7 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
  <div class="client_box">
  <div class="detail_box">
  <div class="img_box">
- <img src="<?php echo \htmlentities(PUBLIC_URL, ENT_QUOTES, 'UTF-8', false); ?>images/trieu.jpg">
+ <img src="<?php echo \htmlentities(PUBLIC_URL, ENT_QUOTES, 'UTF-8', false); ?>images/trieu.jpg" style="border-radius:50%;width:115px;height:115px">
  </div>
  <h5>
  Long lồng lộn
@@ -472,6 +472,17 @@ Gói dịch chăm sóc hồ cá koi theo yêu cầu của khách hàng
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script>
+ function nav(){
+ let item = document.getElementById("navbarSupportedContent").classList;
+ console.log(item.length);
+ if (item.length==3){
+ item=item.remove("show");
+ } else {
+ item=item.add("show");
+ }
+ } 
+</script>
 
 </body>
 </php>

@@ -41,6 +41,9 @@
     margin: 0 5px;
     text-align: center;
   }
+  .mess{
+    min-height: 340px;
+  }
 </style>
 <?php
   $host='localhost';
@@ -87,26 +90,31 @@
           $stmt -> execute();
           $fishs = $stmt -> fetchAll();
 ?>
+
   <div class="container">
       <div class="table-ca" >
           <h2>Sản phẩm</h2>
           <div class="fish_list">
               <?php
-              foreach ($fishs as $fish) {
-              ?>
-                  <a href="{{BASE_URL.'chi-tiet?ma_ca='. $fish['ma_ca']}} ">
-                    <div class="fish">                         
-                            <div class="fish_image">                              
-                                  <img src="{{PUBLIC_URL . '/images/'}}<?= $fish['anh'] ?>" width="150px" />
-                            </div>
-                            <div class="ten">
-                                <?= $fish['ten_ca'] ?>
-                                <div class="ten" style="color: red;">
-                                    <?= number_format($fish['gia_ban'], 0, '', ",")." đ" ?><u></u>
-                                </div>
-                            </div>                          
-                    </div>
-                  </a>
+              if(sizeof($fishs)!=0){
+                foreach ($fishs as $fish) {
+                ?>
+                    <a href="{{BASE_URL.'chi-tiet?ma_ca='. $fish['ma_ca']}} ">
+                      <div class="fish">                         
+                              <div class="fish_image">                              
+                                    <img src="{{PUBLIC_URL . '/images/'}}<?= $fish['anh'] ?>" width="150px" />
+                              </div>
+                              <div class="ten">
+                                  <?= $fish['ten_ca'] ?>
+                                  <div class="ten" style="color: red;">
+                                      <?= number_format($fish['gia_ban'], 0, '', ",")." đ" ?><u></u>
+                                  </div>
+                              </div>                          
+                      </div>
+                    </a>
+              <?php }
+                } else { ?>
+                  <div class="mess"><h2>Không tìm thấy sản phẩm</h2></div>
               <?php } ?>
           </div>
           <div class="paging" >

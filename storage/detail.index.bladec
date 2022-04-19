@@ -6,9 +6,8 @@
  flex-direction: column;
  }
  h2{
- display: flex;
  padding:50px 0;
- justify-content: space-around;
+ text-align: center;
  }
  .ca2{
  background-color: black;
@@ -49,8 +48,7 @@
  .comment form button{
  margin-left: 10px;
  border-radius: 10px;
- max-width: 100px;
- min-width: 50px;
+ width: 100px;
  height: 50px;
  }
  .show_comment{
@@ -130,6 +128,14 @@
  text-align: center;
  margin-bottom:20px; 
  }
+ @media only screen and (max-width: 768px){
+ .info_detail{
+ margin-top: 50px;
+ }
+ .comment form button{
+ width: 70px;
+ }
+ }
 </style>
 <?php
  $host='localhost';
@@ -154,12 +160,13 @@
 
  $stmt = $conn->prepare($sql1);
  $stmt->execute();
- $comments = $stmt -> fetchAll();                       
+ $comments = $stmt -> fetchAll();    
+ 
  $sql2 = "select * from bai_viet WHERE ma_ca='$ma_ca' LIMIT 3";
  $stmt = $conn->prepare($sql2);
  $stmt->execute();
- $list_bai_viet = $stmt -> fetchAll();
 
+ $list_bai_viet = $stmt -> fetchAll();
  $sql3 = "select * from danh_gia JOIN tai_khoan ON danh_gia.ma_tai_khoan=tai_khoan.ma_tai_khoan WHERE danh_gia.ma_ca='$ma_ca' LIMIT 5";
  $stmt = $conn->prepare($sql3);
  $stmt->execute();
@@ -192,21 +199,17 @@
  <div class="info_detail">    
  <span><h3>Thông tin chi tiết</h3></span>              
  <div class="ten">
- Tên Cá:
- <?= $fish['ten_ca'] ?>
+ Tên Cá: <?= $fish['ten_ca'] ?>
  <div class="ten" style="color: red;">
- Giá :
- <?= number_format($fish['gia_ban'], 0, '', ",")." đ" ?><u></u>
- </div>
- Ngày Nhập:
- <?= $fish['ngay_nhap'] ?>
- <div>
- Trạng Thái:
- <?= $fish['trang_thai'] ?>
+ Giá : <?= number_format($fish['gia_ban'], 0, '', ",")." đ" ?><u></u>
  </div>
  <div>
  Nguồn Gốc: <?= $fish['xuat_xu'] ?>
  </div>
+ <div>
+ Trạng Thái: <?= $fish['trang_thai'] ?>
+ </div>
+ 
  </div>
  <a class="buy" href="<?php echo \htmlentities(BASE_URL.'app/views/detail/save-shoping.php?ma_ca='.$ma_ca.'&gia_ban='.$gia_ban, ENT_QUOTES, 'UTF-8', false); ?>">Đặt mua</a>
  </div>
@@ -326,10 +329,10 @@
  foreach($__currentLoopData as $bai_viet): $loop = $this->incrementLoopIndices();  ?>
  <div>
  <div class="img">
- <a href=""><img src="<?php echo \htmlentities(PUBLIC_URL . 'images/0.jpg', ENT_QUOTES, 'UTF-8', false); ?>" alt=""></a>
+ <a href="<?php echo \htmlentities(BASE_URL.'kien-thuc/chi-tiet-bai-viet?id=', ENT_QUOTES, 'UTF-8', false); ?><?php echo \htmlentities($bai_viet['ma_bai_viet'], ENT_QUOTES, 'UTF-8', false); ?>"><img src="<?php echo \htmlentities(PUBLIC_URL . 'images/0.jpg', ENT_QUOTES, 'UTF-8', false); ?>" alt=""></a>
  </div>
  <div class="tieu_de">
- <a href=""><?php echo $bai_viet['tieu_de'] ?></a>
+ <a href="<?php echo \htmlentities(BASE_URL.'kien-thuc/chi-tiet-bai-viet?id=', ENT_QUOTES, 'UTF-8', false); ?><?php echo \htmlentities($bai_viet['ma_bai_viet'], ENT_QUOTES, 'UTF-8', false); ?>"><?php echo $bai_viet['tieu_de'] ?></a>
  </div>
  </div>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
