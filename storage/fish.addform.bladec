@@ -1,6 +1,7 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $this->startSection('main-content'); ?>
 <form method="POST" action="">
+ <?php /*MSG*/ ?>
  <?php if(isset($_GET['msg'])): ?>
  <p class="text-danger"><?= $_GET['msg'] ?></p>
  <?php endif; ?>

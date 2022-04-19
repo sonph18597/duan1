@@ -25,7 +25,7 @@
                       <tr>
                           <th scope="row">{{$item->ma_don_hang}}</th>
                           <td>{{$item->user()->ho_ten}}</td>
-                          <td>{{$item->trang_thai}}</td>
+                          <td> <a href="{{BASE_URL .  'don-hang-trang-thai/'. $item->ma_don_hang}}">{{$item->trang_thai}}</a></td>
                           <td>{{$item->tong_tien}}</td>
                           <td>{{$item->ngay_len_don}}</td>
                           <td>{{$item->branch()->ten_chi_nhanh}}</td>               

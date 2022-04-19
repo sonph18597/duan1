@@ -117,6 +117,10 @@
         justify-content: flex-end;
         margin-right:50px; 
     }
+    .bodyAcc img{
+        width: 215px;
+        height: 215px;
+    }
 </style>
 <?php
         $anh = $_SESSION ["user"]["anh_dai_dien"];

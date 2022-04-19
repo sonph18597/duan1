@@ -22,5 +22,19 @@ class OrderController{
             'order' => $order
         ]);
     }
+
+    public function status($ma_don_hang){
+        $order = Order::find($ma_don_hang);
+        return view('order.status',[
+            'order' => $order
+        ]);
+    }
+
+    public function saveStatus($ma_don_hang){
+        $order = Order::find($ma_don_hang);
+        $order->trang_thai = $_POST['trang_thai'];
+        $order->save();
+        header('location: ' . BASE_URL . 'don-hang' );
+    }
 }
 ?>

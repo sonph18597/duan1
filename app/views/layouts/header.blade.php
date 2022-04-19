@@ -30,19 +30,19 @@
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <nav class="navbar navbar-expand-lg custom_nav-container navbar-dark ">
           <a class="navbar-brand" href="{{BASE_URL.'trang-chu'}}">
             <span>
               CaKoi
             </span>
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button onclick="nav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
+              <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{BASE_URL.'trang-chu'}}">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
@@ -87,5 +87,15 @@
       </div>
     </header>
   </div>
-   
+<script>
+    function nav(){
+      let item = document.getElementById("navbarSupportedContent").classList;
+      console.log(item.length);
+      if (item.length==3){
+        item=item.remove("show");
+      } else {
+        item=item.add("show");
+      }
+    } 
+</script>
 

@@ -17,7 +17,6 @@ use App\Models\Users;
                         'ma_tai_khoan'=>$user -> ma_tai_khoan,
                         "ten_tai_khoan" => $user -> ten_tai_khoan, 
                         "email" => $user -> email,
-
                         "vai_tro" => $user -> vai_tro,
                         "anh_dai_dien" => $user -> anh_dai_dien,
                         "ho_ten" => $user -> ho_ten,

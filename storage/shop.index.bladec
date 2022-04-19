@@ -76,14 +76,17 @@
  width: 150px;
  border-radius:5px; 
  }
+ .main{
+ min-height: 528px;
+ }
 </style>
+<div class="main">
+ <h2>Giỏ hàng</h2>
 
-<h2>Giỏ hàng</h2>
-
-<?php if(isset($_GET['mess'])): ?>
+ <?php if(isset($_GET['mess'])): ?>
  <div class="mess"><?php echo $_GET['mess'] ?></div>
-<?php endif; ?>
-<?php 
+ <?php endif; ?>
+ <?php 
  if(isset($_SESSION['shoping']) && sizeof($_SESSION['shoping'])!=0){ ?>
  <div class="container">
  <div class="row"> 
@@ -140,9 +143,10 @@
  
  <?php } ?>
  </div>
-<?php } else { ?>
+ <?php } else { ?>
  <div class="mess"> Bạn chưa thêm sản phẩm nào </div>
-<?php } ?>
+ <?php } ?>
+</div>
 
 
 

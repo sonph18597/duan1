@@ -41,6 +41,9 @@
  margin: 0 5px;
  text-align: center;
  }
+ .mess{
+ min-height: 340px;
+ }
 </style>
 <?php
  $host='localhost';
@@ -87,11 +90,13 @@
  $stmt -> execute();
  $fishs = $stmt -> fetchAll();
 ?>
+
  <div class="container">
  <div class="table-ca" >
  <h2>Sản phẩm</h2>
  <div class="fish_list">
  <?php
+ if(sizeof($fishs)!=0){
  foreach ($fishs as $fish) {
  ?>
  <a href="<?php echo \htmlentities(BASE_URL.'chi-tiet?ma_ca='. $fish['ma_ca'], ENT_QUOTES, 'UTF-8', false); ?> ">
@@ -107,6 +112,9 @@
  </div>                          
  </div>
  </a>
+ <?php }
+ } else { ?>
+ <div class="mess"><h2>Không tìm thấy sản phẩm</h2></div>
  <?php } ?>
  </div>
  <div class="paging" >
