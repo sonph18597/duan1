@@ -63,7 +63,7 @@
             </div>
             <div class="quote_btn-container ">
               <?php if (isset($_SESSION ["user"])) : ?>
-                <a href="{{BASE_URL.'chi-tiet-tai-khoan'}}"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
+                <a href="{{BASE_URL.'chi-tiet-tai-khoan'}}" style="color: white"> <b><?php echo ($_SESSION ["user"]["ten_tai_khoan"]);?></b> </a>
                 <?php
                       $anh = $_SESSION ["user"]["anh_dai_dien"];
                      

@@ -11,7 +11,7 @@
                 <option value="{{$order->trang_thai}}" >Chọn trạng thái</option>               
                 <option value="Chờ xác nhận">Chờ xác nhận</option>
                 <option value="Đang vận chuyển">Đang vận chuyển</option>
-                <option value="Thành công">Thành công</option>
+                <option value="Đã hoàn thành">Đã hoàn thành</option>
                 <option value="Chuyển hoàn">Chuyển hoàn</option>
                 <option value="Hủy đơn">Hủy đơn</option>
 

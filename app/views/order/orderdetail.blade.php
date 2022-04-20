@@ -14,8 +14,9 @@
         <div class="card-body">
             <p><span  style="display: inline-block; width: 200px">Khách hàng : </span>   {{$order->user()->ho_ten}}</p>
             <p><span style="display: inline-block; width: 200px">Email : </span>  {{$order->user()->email}}</p>
-            <p><span style="display: inline-block; width: 200px">Số điện thoại : </span>  {{$order->user()->so_dien_thoai}}</p>
-            
+            <p><span  style="display: inline-block; width: 200px">Địa chỉ người nhận : </span>   {{$order->dia_chi}}</p>
+            <p><span  style="display: inline-block; width: 200px">Số điện thoại người nhận : </span>   {{$order->so_dien_thoai}}</p>
+            <p><span  style="display: inline-block; width: 200px">Tổng tiền : </span>   {{$order->tong_tien}}</p>            
         </div>
     </div>
 

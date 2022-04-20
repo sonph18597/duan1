@@ -88,21 +88,21 @@
             Contact
           </h5>
           <div>
-            <img src="http://localhost/du-an-1/public/images/location-white.png" alt="">
+            <img src="http://localhost/duan1/public/images/location-white.png" alt="">
             <p>
              Trịnh Văn BÔ- NAM TỪ LIÊM
             </p>
           </div>
           <div>
-            <img src="http://localhost/du-an-1/public/images/telephone-white.png" alt="">
+            <img src="http://localhost/duan1/public/images/telephone-white.png" alt="">
             <p>
               0961080094
             </p>
           </div>
           <div>
-            <img src="http://localhost/du-an-1/public/images/envelope-white.png" alt="">
+            <img src="http://localhost/duan1/public/images/envelope-white.png" alt="">
             <p>
-              trieuthph18663@fpt.edu.vn
+              trieu@fpt.edu.vn
             </p>
           </div>
         </div>

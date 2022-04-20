@@ -31,7 +31,7 @@
  
  <td><?php echo \htmlentities($item->ho_ten, ENT_QUOTES, 'UTF-8', false); ?></td>
  <td><?php echo \htmlentities($item->so_dien_thoai, ENT_QUOTES, 'UTF-8', false); ?></td>
- <td><img src="<?php echo \htmlentities(PUBLIC_URL . '/img/' . $item->anh_dai_dien, ENT_QUOTES, 'UTF-8', false); ?>" width = '100px' height = '100px' alt=""></td>
+ <td><img src="<?php echo \htmlentities(PUBLIC_URL . '/dist/img/' . $item->anh_dai_dien, ENT_QUOTES, 'UTF-8', false); ?>" width = '100px' height = '100px' alt=""></td>
  <td><?php echo \htmlentities($item->vai_tro, ENT_QUOTES, 'UTF-8', false); ?></td>
  <td>
  <a href="<?php echo \htmlentities(BASE_URL . 'nguoi-dung/cap-nhat_id/'.$item->ma_tai_khoan, ENT_QUOTES, 'UTF-8', false); ?>"><button type="button" class="btn btn-primary">Sửa</button></a>

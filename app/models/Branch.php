@@ -36,9 +36,12 @@ class Branch extends Model{
         $order = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
         $tong = 0;
         foreach($order as $item){
-            if(date('m/Y') == date('m/Y', strtotime($item->ngay_len_don))){
-                $tong += $item -> tong_tien;
+            if($item->trang_thai == 'Đã hoàn thành'){
+                if(date('m/Y') == date('m/Y', strtotime($item->ngay_len_don))){
+                    $tong += $item -> tong_tien;
+                }
             }
+            
         }
         return $tong;
     }

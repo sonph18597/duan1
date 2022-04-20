@@ -7,6 +7,7 @@
     <div class="detailAcc_option">
         <div>
             <img src="{{PUBLIC_URL}}dist/img/{{$anh}}" alt="">
+            
             <p><b><?php echo $_SESSION ["user"]["ten_tai_khoan"]?></b></p>
             <br>
             <br>

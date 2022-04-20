@@ -37,8 +37,7 @@ use App\Models\Users;
         if (password_verify($_POST["mat_khau"],$user -> mat_khau)){
                 $user -> mat_khau = password_hash($_POST['mat_khau_new'], PASSWORD_DEFAULT);
                 $user -> save();
-                header('location:'. BASE_URL. 'trang-chu');
-        }
+                header('location:'. BASE_URL. 'chi_tiet_tai_khoan?msg="doi_matkhau"');
         else {
             
         }
