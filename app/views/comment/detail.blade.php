@@ -28,7 +28,7 @@
                 <td>{{$item->user()->ten_tai_khoan}}</td>
 
                 <td>
-                    <a href="{{BASE_URL . 'binh-luan/phan-hoi_id/'.$item->ma_binh_luan}}"><button type="button" class="btn btn-primary">Chi tiết</button></a>
+                    <a href="{{BASE_URL . 'binh-luan/phan-hoi_id/'.$item->ma_binh_luan}}"><button type="button" class="btn btn-info">Xem phản hồi</button></a>
                     <a href="{{BASE_URL . 'binh-luan/xoa_id/' . $item->ma_binh_luan}} "  onclick="return confirm('Có không giữ xóa thì mất');"><button  type="button" class="btn btn-danger">Xóa</button></a>
                 </td>
               @endif

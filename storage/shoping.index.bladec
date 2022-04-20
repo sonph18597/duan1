@@ -193,7 +193,7 @@
  <div class="sl"><?= $product['so_luong'] ?></div>
  <div class="gia"><?= number_format($product['gia_ban'], 0, '', ",")." đ" ?></div>
  <div class="tien"><?= number_format($product['gia_ban']*$product['so_luong'], 0, '', ",")." đ" ?></div>
- <?php if($don_hang['trang_thai']=="đã hoàn thành"): ?>
+ <?php if($don_hang['trang_thai']=="Đã hoàn thành"): ?>
  <?php
  $ma_ca=$product['ma_ca'];
  $sql = "SELECT * FROM danh_gia WHERE ma_don_hang='$ma_don_hang' AND ma_ca='$ma_ca'";

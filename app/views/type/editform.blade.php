@@ -11,11 +11,11 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Tên cha nó</label>
+      <label for="exampleInputEmail1" class="form-label">Tên loại cha</label>
       <br>
       <select class="form-select"  name='ma_loai_cha' aria-label="Default select example">
-        <option value="{{$type->ma_loai_cha}}">Chọn cha cho nó</option>
-        <option value="0">Mồ côi</option>
+        <option value="{{$type->ma_loai_cha}}">Chọn tên loại cha</option>
+        <option value="0">Null</option>
           @foreach ($show as $item)
             @if ($item->ma_loai != $type->ma_loai)
               

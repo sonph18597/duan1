@@ -30,7 +30,7 @@
       
                 <td>{{$item->ho_ten}}</td>
                 <td>{{$item->so_dien_thoai}}</td>
-                <td><img src="{{PUBLIC_URL . '/img/' . $item->anh_dai_dien}}" width = '100px' height = '100px' alt=""></td>
+                <td><img src="{{PUBLIC_URL . '/dist/img/' . $item->anh_dai_dien}}" width = '100px' height = '100px' alt=""></td>
                 <td>{{$item->vai_tro}}</td>
                 <td>
                     <a href="{{BASE_URL . 'nguoi-dung/cap-nhat_id/'.$item->ma_tai_khoan}}"><button type="button" class="btn btn-primary">Sửa</button></a>

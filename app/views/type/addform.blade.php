@@ -15,7 +15,7 @@
       <br>
       <select class="form-select" name='ma_loai_cha' aria-label="Default select example">
             <option selected>Chọn loại cha</option>
-            <option value="0">Mồ côi</option>
+            <option value="0">Null</option>
             @foreach ($type as $item)
                 <option value="{{$item->ma_loai}}">{{$item->ten_loai}}</option>
             @endforeach

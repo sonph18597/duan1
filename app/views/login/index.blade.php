@@ -1,5 +1,6 @@
 @extends('layouts.client')
 @section('client_content')
+
 <div class="login_container">
   <div class="row">
       <div class="col-md-6 mx-auto" id="form">

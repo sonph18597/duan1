@@ -6,6 +6,7 @@ use App\Models\Fish;
 use App\Models\ManageBranch;
 use App\Models\ManageFish;
 use App\Models\Type;
+use App\Models\Order;
 
 class StatisticalController{
     public function index(){
@@ -16,11 +17,11 @@ class StatisticalController{
     }
 
     public function detail($ma_chi_nhanh){
+        $order = Order::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
         $branch = Branch::where('ma_chi_nhanh',$ma_chi_nhanh)->first();
-        $mana = ManageFish::where('ma_chi_nhanh',$ma_chi_nhanh)->get();
         return view('statistical.detail',[
-            'branch'=>$branch,
-            'mana'=>$mana,
+            'order' => $order,
+            'branch' => $branch
         ]);
     }
 }

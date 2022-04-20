@@ -22,7 +22,7 @@
                 <td>{{$item->ten_loai}}</td>
                
                 @if ($item->ma_loai_cha == 0)
-                    <td>Mồ côi</td>
+                    <td>Null</td>
                 @else
                       <td>{{$item->type()->ten_loai}}</td>
                 @endif
